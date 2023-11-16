@@ -49,6 +49,21 @@
                                 </li>
                             @endif
                         @else
+                            @if (Route::has('home'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                                </li>
+                            @endif
+                            @if (Route::has('dienstregeling'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('dienstregeling') }}">{{ __('Dienstregeling') }}</a>
+                                </li>
+                            @endif
+                            @if (Route::has('spoorbeheer'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('spoorbeheer') }}">{{ __('Spoorbeheer') }}</a>
+                                </li>
+                            @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
