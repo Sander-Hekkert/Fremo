@@ -8,6 +8,6 @@ class SpoorbeheerController extends Controller
 {
     public function showSpoorbeheer()
     {
-        return view('Spoorbeheer');
+        return view('spoorbeheer');
     }
 }

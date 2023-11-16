@@ -20,8 +20,8 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/dienstregeling', [DienstregelingController::class, 'showDienstregeling']);
-    Route::get('/wagenkaart', [WagenkaartController::class, 'showWagenkaart']);
-    Route::get('/spoorbeheer', [SpoorbeheerController::class, 'showSpoorbeheer']);
+    Route::get('/dienstregeling', [DienstregelingController::class, 'showDienstregeling'])->name('dienstregeling');
+    Route::get('/wagenkaart', [WagenkaartController::class, 'showWagenkaart'])->name('wagenkaart');
+    Route::get('/spoorbeheer', [SpoorbeheerController::class, 'showSpoorbeheer'])->name('spoorbeheer');
 });
 

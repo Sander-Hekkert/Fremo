@@ -48,7 +48,8 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
-                        @else
+                        @endguest
+                        @auth
                             @if (Route::has('home'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
@@ -86,7 +87,8 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest
+                        @endauth
+
                     </ul>
                 </div>
             </div>
