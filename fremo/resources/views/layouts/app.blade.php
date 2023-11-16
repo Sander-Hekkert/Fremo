@@ -88,11 +88,11 @@
                                 </div>
                             </li>
                         @endauth
-
                     </ul>
                 </div>
             </div>
         </nav>
+<img src="{{ asset('Fotos/image.png') }}" alt="Rails" class="img-fluid mx-auto d-block mb-0" style="width: 100%">
 
         <main class="py-4">
             @yield('content')
