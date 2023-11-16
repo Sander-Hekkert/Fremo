@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -20,8 +20,9 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+                <!-- Replace the text with an image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="{{ asset('Fotos/logo.png') }}" alt="Rails" class="img-fluid mx-auto d-block mb-0" style="width: 30%; max-height: 30%;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -56,7 +57,7 @@
                                 </li>
                             @endif
                             @if (Route::has('dienstregeling'))
-                                 <li class="nav-item">
+                                <li class="nav-item">
                                     <a class="nav-link" href="{{ route('dienstregeling') }}">{{ __('Dienstregeling') }}</a>
                                 </li>
                             @endif
@@ -92,7 +93,7 @@
                 </div>
             </div>
         </nav>
-<img src="{{ asset('Fotos/image.png') }}" alt="Rails" class="img-fluid mx-auto d-block mb-0" style="width: 100%">
+        <img src="{{ asset('Fotos/image.png') }}" alt="Rails" class="img-fluid mx-auto d-block mb-0" style="width: 100%; max-height: 200px;">
 
         <main class="py-4">
             @yield('content')
