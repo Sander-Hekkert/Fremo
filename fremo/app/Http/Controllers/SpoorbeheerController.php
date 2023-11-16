@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Spoorbeheer extends Controller
+class SpoorbeheerController extends Controller
 {
     public function showSpoorbeheer()
     {
-        return view('spoorbeheer');
+        return view('Spoorbeheer');
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Dienstregeling extends Controller
+class DienstregelingController extends Controller
 {
     public function showDienstregeling()
     {

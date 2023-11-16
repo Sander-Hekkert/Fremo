@@ -55,13 +55,18 @@
                                 </li>
                             @endif
                             @if (Route::has('dienstregeling'))
-                                <li class="nav-item">
+                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('dienstregeling') }}">{{ __('Dienstregeling') }}</a>
                                 </li>
                             @endif
                             @if (Route::has('spoorbeheer'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('spoorbeheer') }}">{{ __('Spoorbeheer') }}</a>
+                                </li>
+                            @endif
+                            @if (Route::has('wagenkaart'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('wagenkaart') }}">{{ __('Wagenkaart') }}</a>
                                 </li>
                             @endif
                             <li class="nav-item dropdown">
