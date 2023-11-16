@@ -61,11 +61,19 @@
                                     <a class="nav-link" href="{{ route('dienstregeling') }}">{{ __('Dienstregeling') }}</a>
                                 </li>
                             @endif
-                            @if (Route::has('spoorbeheer'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('spoorbeheer') }}">{{ __('Spoorbeheer') }}</a>
-                                </li>
+                    <li class="nav-item dropdown">
+                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ 'Spoorbeheer' }}
+                                </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @if (Route::has('module'))
+                                <a class="dropdown-item" href="{{ route('module') }}">{{ __('Module') }}</a>
                             @endif
+                            @if (Route::has('trein'))
+                                <a class="dropdown-item" href="{{ route('trein') }}">{{ __('Treinen') }}</a>
+                            @endif
+                        </div>
+                    </li>
                             @if (Route::has('wagenkaart'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('wagenkaart') }}">{{ __('Wagenkaart') }}</a>
