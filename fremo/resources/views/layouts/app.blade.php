@@ -66,8 +66,8 @@
                                     {{ 'Spoorbeheer' }}
                                 </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            @if (Route::has('module'))
-                                <a class="dropdown-item" href="{{ route('module') }}">{{ __('Module') }}</a>
+                            @if (Route::has('module.index'))
+                                <a class="dropdown-item" href="{{ route('module.index') }}">{{ __('Module') }}</a>
                             @endif
                             @if (Route::has('trein'))
                                 <a class="dropdown-item" href="{{ route('trein') }}">{{ __('Treinen') }}</a>
