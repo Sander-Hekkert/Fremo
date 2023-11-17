@@ -69,8 +69,8 @@
                             @if (Route::has('module.index'))
                                 <a class="dropdown-item" href="{{ route('module.index') }}">{{ __('Module') }}</a>
                             @endif
-                            @if (Route::has('trein'))
-                                <a class="dropdown-item" href="{{ route('trein') }}">{{ __('Treinen') }}</a>
+                            @if (Route::has('trein.index'))
+                                <a class="dropdown-item" href="{{ route('trein.index') }}">{{ __('Treinen') }}</a>
                             @endif
                         </div>
                     </li>

@@ -36,11 +36,10 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/module/new', [ModuleController::class, 'create'])->name('module.create');
 
 //Trein
-    Route::get('/trein', 'TreinController@index')->name('trein.index');
-    Route::get('/trein/{id}/edit', 'TreinController@edit')->name('trein.edit');
-    Route::post('/trein/{id}/update', 'TreinController@update')->name('trein.update');
-    Route::get('/trein/{id}/delete', 'TreinController@delete')->name('trein.delete');
-    Route::get('/trein/new', 'TreinController@new')->name('trein.new');
-    Route::post('/trein/create', 'TreinController@create')->name('trein.create');
+    Route::get('/trein', [TreinController::class, 'index'])->name('trein.index');
+    Route::get('/trein/{id}/edit', [TreinController::class, 'edit'])->name('trein.edit');
+    Route::post('/trein/{id}/update', [TreinController::class,'update'])->name('trein.update');
+    Route::get('/trein/{id}/delete', [TreinController::class, 'delete'])->name('trein.delete');
+    Route::get('/trein/new', [TreinController::class, 'new'])->name('trein.new');
+    Route::post('/trein/create', [TreinController::class, 'create'])->name('trein.create');
 });
-
