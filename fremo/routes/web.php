@@ -29,11 +29,12 @@ Route::group(['middleware' => 'auth'], function(){
 
 //Module
     Route::get('/module', [ModuleController::class, 'index'])->name('module.index');
-    Route::get('/module/{id}/edit', [ModuleController::class, 'edit'])->name('module.edit');
-    Route::post('/module/{id}/edit', [ModuleController::class, 'update'])->name('module.update');
-    Route::get('/module/{id}/delete', [ModuleController::class, 'delete'])->name('module.delete');
+    Route::get('/modules/{module}/edit', [ModuleController::class, 'edit'])->name('module.edit');
+    Route::post('/modules/{module}/edit', [ModuleController::class, 'update'])->name('module.update');
+    Route::get('/modules/{module}/delete', [ModuleController::class, 'delete'])->name('module.delete');
     Route::get('/module/new', [ModuleController::class, 'new'])->name('module.new');
-    Route::post('/module/new', [ModuleController::class, 'create'])->name('module.create');
+    Route::post('/module/create', [ModuleController::class, 'create'])->name('module.create');
+    Route::resource('/module', ModuleController::class)->names('module')->parameters(['module' => 'module']);
 
 //Trein
     Route::get('/trein', [TreinController::class, 'index'])->name('trein.index');

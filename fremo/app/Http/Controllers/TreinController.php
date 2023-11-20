@@ -26,7 +26,7 @@ class TreinController extends Controller
         $trein = Trein::findOrFail($id);
         $trein->update($request->all());
     
-        return redirect()->route('treins.index')->with('success', 'Trein updated successfully');
+        return redirect()->route('trein.index')->with('success', 'Trein updated successfully');
     }
 
     public function destroy($id)
@@ -34,7 +34,7 @@ class TreinController extends Controller
         $trein = Trein::findOrFail($id);
         $trein->delete();
     
-        return redirect()->route('treinen.index')->with('success', 'Trein deleted successfully');
+        return redirect()->route('trein.index')->with('success', 'Trein deleted successfully');
     }
 
     public function new()

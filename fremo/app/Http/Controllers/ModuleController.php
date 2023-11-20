@@ -21,13 +21,20 @@ class ModuleController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Voeg hier de logica toe om de module bij te werken
+        // Validate the request...
+    
+        $module = Module::findOrFail($id);
+        $module->update($request->all());
+    
+        return redirect()->route('module.index')->with('success', 'Module updated successfully');
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
-        $module = Module::find($id);
-        return view('module.delete', compact('module'));
+        $module = Module::findOrFail($id);
+        $module->delete();
+    
+        return redirect()->route('module.index')->with('success', 'Module deleted successfully');
     }
 
     public function new()
@@ -35,8 +42,14 @@ class ModuleController extends Controller
         return view('module.new');
     }
 
+    public function store(Request $request)
+    {
+        Module::create($request->all());
+        return redirect()->route('module.index')->with('success', 'Module created successfully');
+    }
+
     public function create(Request $request)
     {
-        // Voeg hier de logica toe om een nieuwe module aan te maken
+        return view('module.create');    
     }
 }
