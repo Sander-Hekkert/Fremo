@@ -21,13 +21,20 @@ class TreinController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Voeg hier de logica toe om de trein bij te werken
+        // Validate the request...
+    
+        $trein = Trein::findOrFail($id);
+        $trein->update($request->all());
+    
+        return redirect()->route('treins.index')->with('success', 'Trein updated successfully');
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
-        $trein = Trein::find($id);
-        return view('trein.delete', compact('trein'));
+        $trein = Trein::findOrFail($id);
+        $trein->delete();
+    
+        return redirect()->route('treinen.index')->with('success', 'Trein deleted successfully');
     }
 
     public function new()
@@ -35,8 +42,14 @@ class TreinController extends Controller
         return view('trein.new');
     }
 
+    public function store(Request $request)
+    {
+        Trein::create($request->all());
+        return redirect()->route('trein.index')->with('success', 'Trein created successfully');
+    }
+
     public function create(Request $request)
     {
-        // Voeg hier de logica toe om een nieuwe trein aan te maken
+        return view('trein.create');    
     }
 }

@@ -37,9 +37,10 @@ Route::group(['middleware' => 'auth'], function(){
 
 //Trein
     Route::get('/trein', [TreinController::class, 'index'])->name('trein.index');
-    Route::get('/trein/{id}/edit', [TreinController::class, 'edit'])->name('trein.edit');
-    Route::post('/trein/{id}/update', [TreinController::class,'update'])->name('trein.update');
-    Route::get('/trein/{id}/delete', [TreinController::class, 'delete'])->name('trein.delete');
+    Route::get('/treins/{trein}/edit', [TreinController::class, 'edit'])->name('trein.edit');
+    Route::post('/treins/{trein}/update', [TreinController::class,'update'])->name('trein.update');
+    Route::delete('treins/{trein}', [TreinController::class, 'destroy'])->name('trein.destroy');
     Route::get('/trein/new', [TreinController::class, 'new'])->name('trein.new');
     Route::post('/trein/create', [TreinController::class, 'create'])->name('trein.create');
+    Route::resource('/trein', TreinController::class)->names('trein')->parameters(['trein' => 'trein']);
 });
