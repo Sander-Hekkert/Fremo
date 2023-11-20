@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Trein;
 
 class TreinController extends Controller
 {
     public function index()
     {
-        $treinen = Trein::all();
-        return view('trein.index', compact('treinen'));
+        $treins = Trein::all();
+        return view('trein.index', compact('treins'));
     }
 
     public function edit($id)
