@@ -17,10 +17,6 @@ class CreateTreinwegTable extends Migration
             $table->id();
             $table->unsignedBigInteger('trein_id');
             $table->unsignedBigInteger('wegdiagram_id');
-            
-            // Foreign key constraints
-            $table->foreign('trein_id')->references('id')->on('treinen');
-            $table->foreign('wegdiagram_id')->references('id')->on('wegdiagram');
 
             $table->timestamps();
         });

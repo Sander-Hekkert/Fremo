@@ -20,7 +20,7 @@ class CreateProjectsTable extends Migration
             $table->foreign('users_id')->references('id')->on('users');
             $table->dateTime('datum_en_tijd_aangemaakt');
             $table->timestamps();
-            $table->string('status')->default('pending'); // Remove 'after' from here
+            $table->string('status')->default('pending');
         });
     }
 

@@ -18,10 +18,6 @@ class CreateStationwegTable extends Migration
             $table->unsignedBigInteger('station_id');
             $table->unsignedBigInteger('wegdiagram_id');
             $table->integer('positie');
-            
-            // Foreign key constraints
-            $table->foreign('station_id')->references('id')->on('stations');
-            $table->foreign('wegdiagram_id')->references('id')->on('wegdiagram');
 
             $table->timestamps();
         });

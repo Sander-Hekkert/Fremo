@@ -21,11 +21,6 @@ class CreateWegdiagramTable extends Migration
             $table->string('status');
             $table->unsignedBigInteger('treinweg_id');
             $table->unsignedBigInteger('stationweg_id');
-            
-            // Foreign key constraints
-            $table->foreign('project_id')->references('id')->on('projects');
-            $table->foreign('treinweg_id')->references('id')->on('treinwegen');
-            $table->foreign('stationweg_id')->references('id')->on('stationwegen');
 
             $table->timestamps();
         });
