@@ -8,6 +8,6 @@ class DienstregelingController extends Controller
 {
     public function showDienstregeling()
     {
-        return view('dienstregeling');
+        return view('project.index');
     }
 }

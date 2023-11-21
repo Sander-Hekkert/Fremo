@@ -6,6 +6,8 @@ use App\Http\Controllers\DienstregelingController;
 use App\Http\Controllers\WagenkaartController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\TreinController;
+use App\Http\Controllers\ProjectController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +46,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/trein/new', [TreinController::class, 'new'])->name('trein.new');
     Route::post('/trein/create', [TreinController::class, 'create'])->name('trein.create');
     Route::resource('/trein', TreinController::class)->names('trein')->parameters(['trein' => 'trein']);
+
+//Project
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 });
