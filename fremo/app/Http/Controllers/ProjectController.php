@@ -26,11 +26,9 @@ class ProjectController extends Controller
         $project->status = '25%';
         $project->save();
 
-        return redirect()->route('project.index')->with('success', 'Project succesvol aangemaakt!');
     }
     public function index()
     {
-        // Your logic to fetch and display projects goes here
         $projects = Project::all();
         return view('project.index', compact('projects'));
     }
