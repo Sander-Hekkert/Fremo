@@ -6,29 +6,24 @@ use Illuminate\Http\Request;
 
 class WegdiagramController extends Controller
 {
-    // ...
-
-    public function create($project_id)
-    {
-        return view('wegdiagram.create', compact('project_id'));
-    }
-
     public function store(Request $request)
     {
-        $request->validate([
-            'starttijd' => 'required|date',
-            'eindtijd' => 'required|date|after:starttijd',
-            'project_id' => 'required|exists:projects,id',
-        ]);
-
-        Wegdiagram::create([
-            'project_id' => $request->input('project_id'),
-            'starttijd' => $request->input('starttijd'),
-            'eindtijd' => $request->input('eindtijd'),
-            'status' => '50%',
-            // Add other Wegdiagram fields here
-        ]);
-
-        return redirect()->route('project.index')->with('success', 'Wegdiagram created successfully.');
+        $wegdiagram = new Wegdiagram();
+        $wegdiagram->users_id = auth()->id();
+        $wegdiagram->starttijd = $request->input('starttijd');
+        $wegdiagram->eindtijd = $request->input('eindtijd');
+        $wegdiagram->status = '50%';
+        $wegdiagram->save();
+    
+        // Gebruik $wegdiagram in plaats van $project en corrigeer de redirect
+        return redirect()->route('tijdtafel.index', ['project_id' => $wegdiagram->id])
+                         ->with('success', 'Wegdiagram successfully created!');
+    }
+    
+    public function index()
+    {
+        // Je logica om Wegdiagrammen op te halen en weer te geven komt hier
+        $wegdiagrammen = Wegdiagram::all(); // Haal alle Wegdiagrammen op (pas aan naar je behoefte)
+        return view('wegdiagram.index', compact('wegdiagrammen'));
     }
 }

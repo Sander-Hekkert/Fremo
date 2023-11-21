@@ -5,7 +5,7 @@
         <div class="row g-0">
             <div class="col-2">
 
-                <a href="{{ route('project.create') }}" class="btn btn-primary">
+                <a href="{{ route('project.index') }}" class="btn btn-primary">
                     New
                 </a>
             </div>

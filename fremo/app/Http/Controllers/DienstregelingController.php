@@ -13,4 +13,9 @@ class DienstregelingController extends Controller
         return view('project.index', compact('projects'));
 
     }
+    public function index()
+    {
+        $projects = projects::all();
+        return view('dienstregeling.index', ['projects' => $projects]);
+    }
 }

@@ -19,9 +19,6 @@ class CreateWegdiagramTable extends Migration
             $table->dateTime('starttijd');
             $table->dateTime('eindtijd');
             $table->string('status');
-            $table->unsignedBigInteger('treinweg_id');
-            $table->unsignedBigInteger('stationweg_id');
-
             $table->timestamps();
         });
     }

@@ -11,12 +11,11 @@ class Wegdiagram extends Model
     protected $table = 'wegdiagram';
 
     protected $fillable = [
-        'project_id',
+        'projects_id',
+        'users_id',
         'starttijd',
         'eindtijd',
         'status',
-        'treinweg_id',
-        'stationweg_id',
     ];
 
     // Relationships or additional methods can be defined here

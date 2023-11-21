@@ -28,6 +28,6 @@ class ProjectController extends Controller
     {
         // Your logic to fetch and display projects goes here
         $projects = new Project(); // Creating a new project instance
-        return view('projects.index', compact('projects'));
+        return view('project.index', compact('projects'));
     }
 }
