@@ -1,18 +1,19 @@
-<!-- create.blade.php -->
+<!-- resources/views/wegdiagram/create.blade.php -->
 
-@extends('layouts.app')
+@extends('layouts.app') <!-- Assuming you have a layout file -->
 
 @section('content')
-    <div class="container">
-        <form action="{{ route('wegdiagram.store') }}" method="POST">
-            @csrf
+    <form action="{{ route('wegdiagram.store') }}" method="post">
+        @csrf
 
-            <div class="form-group">
-                <label for="titel">Titel:</label>
-                <input type="text" name="titel" id="titel" class="form-control">
-            </div>
+        <input type="hidden" name="project_id" value="{{ $project_id }}">
 
-            <button type="submit" class="btn btn-primary">Opslaan</button>
-        </form>
-    </div>
+        <label for="starttijd">Starttijd:</label>
+        <input type="datetime-local" name="starttijd" required>
+
+        <label for="eindtijd">Eindtijd:</label>
+        <input type="datetime-local" name="eindtijd" required>
+
+        <button type="submit" class="btn btn-primary">Opslaan</button>
+    </form>
 @endsection

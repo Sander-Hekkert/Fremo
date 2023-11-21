@@ -5,7 +5,6 @@
         <div class="row">
             <div class="col">
                 <h1>Modules</h1>
-
                 <a href="{{ route('module.new') }}" class="btn btn-primary">
                     New
                 </a>
