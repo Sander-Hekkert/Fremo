@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DienstregelingController;
@@ -7,18 +6,6 @@ use App\Http\Controllers\WagenkaartController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\TreinController;
 use App\Http\Controllers\ProjectController;
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Auth::routes();
 
@@ -49,6 +36,18 @@ Route::group(['middleware' => 'auth'], function(){
 
 //Project
     Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+<<<<<<< Updated upstream
     Route::get('/project/create', [ProjectController::class, 'create'])->name('project.create');
     Route::post('/project', [ProjectController::class, 'store'])->name('project.store');
 });
+=======
+    Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
+    Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
+Route::post('/project/store', [ProjectController::class, 'store'])->name('project.store');
+//Wegdiagram
+    Route::get('/wegdiagram/create/{project_id}', [WegdiagramController::class, 'create'])->name('wegdiagram.create');
+    Route::post('/wegdiagram/store', [WegdiagramController::class, 'store'])->name('wegdiagram.store');
+    
+    
+});
+>>>>>>> Stashed changes
