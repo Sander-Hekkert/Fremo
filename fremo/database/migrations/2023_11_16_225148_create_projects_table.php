@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,7 +20,7 @@ class CreateProjectsTable extends Migration
             $table->foreign('users_id')->references('id')->on('users');
             $table->dateTime('datum_en_tijd_aangemaakt');
             $table->timestamps();
-            $table->string('status')->default('pending')->after('datum_en_tijd_aangemaakt');
+            $table->string('status')->default('pending'); // Remove 'after' from here
         });
     }
 
