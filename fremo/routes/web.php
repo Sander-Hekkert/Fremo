@@ -48,5 +48,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('/trein', TreinController::class)->names('trein')->parameters(['trein' => 'trein']);
 
 //Project
-Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+    Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+    Route::get('/project/create', [ProjectController::class, 'create'])->name('project.create');
+    Route::post('/project', [ProjectController::class, 'store'])->name('project.store');
 });
