@@ -36,11 +36,6 @@ Route::group(['middleware' => 'auth'], function(){
 
 //Project
     Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
-<<<<<<< Updated upstream
-    Route::get('/project/create', [ProjectController::class, 'create'])->name('project.create');
-    Route::post('/project', [ProjectController::class, 'store'])->name('project.store');
-});
-=======
     Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
     Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
 Route::post('/project/store', [ProjectController::class, 'store'])->name('project.store');
@@ -50,4 +45,3 @@ Route::post('/project/store', [ProjectController::class, 'store'])->name('projec
     
     
 });
->>>>>>> Stashed changes

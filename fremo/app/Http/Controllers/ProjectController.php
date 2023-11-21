@@ -19,14 +19,6 @@ class ProjectController extends Controller
         $project->datum_en_tijd_aangemaakt = now();
         $project->status = '25%';
         $project->save();
-<<<<<<< Updated upstream
-
-    }
-    public function index()
-    {
-        $projects = Project::all();
-        return view('project.index', compact('projects'));
-=======
     
         // Redirect to wegdiagram.create with the project_id parameter
         return redirect()->route('wegdiagram.create', ['project_id' => $project->id])
@@ -37,6 +29,5 @@ class ProjectController extends Controller
         // Your logic to fetch and display projects goes here
         $projects = new Project(); // Creating a new project instance
         return view('projects.index', compact('projects'));
->>>>>>> Stashed changes
     }
 }
