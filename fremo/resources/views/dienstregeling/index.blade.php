@@ -4,7 +4,6 @@
     <div class="container-fluid">
         <div class="row g-0">
             <div class="col-2">
-
                 <a href="{{ route('project.index') }}" class="btn btn-primary">
                     New
                 </a>
@@ -26,8 +25,13 @@
                             <td>{{ $project->titel }}</td>
                             <td>{{ $project->created_at }}</td>
                             <td>{{ $project->updated_at }}</td>
-                            <td>{{ $project->status }}</td>
-                          
+                            <td>
+                                @if ($project->wegdiagram && $project->wegdiagram->status > $project->status)
+                                    {{ $project->wegdiagram->status }}
+                                @else
+                                    {{ $project->status }}
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
