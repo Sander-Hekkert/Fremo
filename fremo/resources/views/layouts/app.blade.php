@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md bg-white">
             <div class="container">
                 <!-- Replace the text with an image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -101,7 +101,7 @@
                 </div>
             </div>
         </nav>
-        <img src="{{ asset('Fotos/image.png') }}" alt="Rails" class="img-fluid mx-auto d-block mb-0" style="width: 100%; max-height: 200px;">
+        <img src="{{ asset('Fotos/rails.svg') }}" alt="Rails" class="img-fluid mx-auto d-block mb-0" style="width: 100%; max-height: 200px;">
 
         <main class="py-4">
             @yield('content')
