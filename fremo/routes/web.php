@@ -16,7 +16,6 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/dienstregeling', [DienstregelingController::class, 'showDienstregeling'])->name('dienstregeling');
     Route::get('/wagenkaart', [WagenkaartController::class, 'showWagenkaart'])->name('wagenkaart');
     Route::get('/module', [ModuleController::class, 'showModule'])->name('module');
     Route::get('/trein', [TreinController::class, 'showTrein'])->name('trein');
@@ -46,4 +45,8 @@ Route::group(['middleware' => 'auth'], function(){
 //Wegdiagram
     Route::get('/wegdiagram/create/{project_id}', [WegdiagramController::class, 'create'])->name('wegdiagram.create');
     Route::post('/wegdiagram/store', [WegdiagramController::class, 'store'])->name('wegdiagram.store');
+
+//Dienstregeling
+    Route::get('/dienstregeling', [DienstregelingController::class, 'index']);
+
 });

@@ -23,8 +23,8 @@
                     @foreach ($projects as $project)
                         <tr>
                             <td>{{ $project->titel }}</td>
-                            <td>{{ $project->created_at }}</td>
-                            <td>{{ $project->updated_at }}</td>
+                            <td>{{ $project->created_at->format('d-m-Y H:i:s') }}</td>
+                            <td>{{ $project->updated_at->format('d-m-Y H:i:s') }}</td>
                             <td>
                                 @if ($project->wegdiagram && $project->wegdiagram->status > $project->status)
                                     {{ $project->wegdiagram->status }}

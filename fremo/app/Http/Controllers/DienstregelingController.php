@@ -18,4 +18,9 @@ class DienstregelingController extends Controller
         $projects = projects::all();
         return view('dienstregeling.index', ['projects' => $projects]);
     }
+    public function yourMethod()
+    {
+        $project = Project::with('wegdiagram')->get();
+        return view('your-view', compact('projects'));
+    }
 }

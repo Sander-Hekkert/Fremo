@@ -19,4 +19,8 @@ class Projects extends Model
     {
         return $this->belongsTo(User::class, 'users_id');
     }
+    public function wegdiagram()
+    {
+        return $this->hasOne(Wegdiagram::class);
+    }
 }

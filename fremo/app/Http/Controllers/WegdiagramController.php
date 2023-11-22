@@ -20,7 +20,7 @@ class WegdiagramController extends Controller
         ]);
 
         $wegdiagram = new Wegdiagram();
-        $wegdiagram->users_id = auth()->id();
+        $wegdiagram->projects_id = auth()->id();
         $wegdiagram->starttijd = $request->input('starttijd');
         $wegdiagram->eindtijd = $request->input('eindtijd');
         $wegdiagram->status = '50%';

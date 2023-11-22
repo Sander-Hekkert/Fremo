@@ -18,5 +18,7 @@ class Wegdiagram extends Model
         'status',
     ];
 
-    // Relationships or additional methods can be defined here
-}
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }}
