@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\WegdiagramController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DienstregelingController;
@@ -8,6 +7,10 @@ use App\Http\Controllers\WagenkaartController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\TreinController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\WegdiagramController;
+use App\Http\Controllers\TijddiagramController;
+use App\Http\Controllers\TijdtafelController;
+use App\Http\Controllers\VrachtkaartController;
 
 Auth::routes();
 
