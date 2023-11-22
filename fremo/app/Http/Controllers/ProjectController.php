@@ -27,7 +27,7 @@ class ProjectController extends Controller
     public function index()
     {
         // Your logic to fetch and display projects goes here
-        $projects = new Project(); // Creating a new project instance
+        $projects = Project::all(); // Fetching all projects
         return view('project.index', compact('projects'));
     }
 }

@@ -49,4 +49,7 @@ Route::group(['middleware' => 'auth'], function(){
 //Dienstregeling
     Route::get('/dienstregeling', [DienstregelingController::class, 'index']);
 
+//Tijddiagram
+    Route::get('/tijddiagram', [TijddiagramController::class, 'index'])->name('tijddiagram.index');
+
 });

@@ -26,7 +26,6 @@ class WegdiagramController extends Controller
         $wegdiagram->status = '50%';
         $wegdiagram->save();
 
-        return redirect()->route('tijdtafel.index', ['project_id' => $request->input('project_id')])
-                         ->with('success', 'Wegdiagram successfully created!');
+        return redirect()->route('tijddiagram.index', ['project_id' => $request->input('project_id')])->with('success', 'Wegdiagram successfully created!');
     }
 }
