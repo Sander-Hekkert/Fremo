@@ -12,7 +12,6 @@ class Projects extends Model
     protected $fillable = [
         'titel',
         'users_id',
-        'datum_en_tijd_aangemaakt',
     ];
 
     public function user()

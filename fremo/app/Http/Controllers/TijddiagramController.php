@@ -28,7 +28,7 @@ class TijddiagramController extends Controller
     public function index()
     {
         // Your logic to fetch and display projects goes here
-        $projects = Tijddiagram::all(); // Fetching all projects
+        $tijddiagram = Tijddiagram::all(); // Fetching all projects
         return view('project.index', compact('projects'));
     }
 }

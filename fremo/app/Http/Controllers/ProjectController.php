@@ -16,7 +16,6 @@ class ProjectController extends Controller
         // Save the project to get its ID
         $project->titel = $request->input('titel');
         $project->users_id = auth()->id();
-        $project->datum_en_tijd_aangemaakt = now();
         $project->status = '25%';
         $project->save();
 
