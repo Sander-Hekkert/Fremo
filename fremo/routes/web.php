@@ -47,7 +47,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/wegdiagram/store', [WegdiagramController::class, 'store'])->name('wegdiagram.store');
 
 //Dienstregeling
-    Route::get('/dienstregeling', [DienstregelingController::class, 'index']);
+    Route::get('/dienstregeling', [DienstregelingController::class, 'index'])->name('dienstregeling');
 
 //Tijddiagram
     Route::get('/tijddiagram', [TijddiagramController::class, 'index'])->name('tijddiagram.index');
