@@ -11,6 +11,8 @@ use App\Http\Controllers\WegdiagramController;
 use App\Http\Controllers\TijddiagramController;
 use App\Http\Controllers\TijdtafelController;
 use App\Http\Controllers\VrachtkaartController;
+use App\Http\Controllers\ProfilesController;
+
 
 Auth::routes();
 
@@ -52,4 +54,13 @@ Route::group(['middleware' => 'auth'], function(){
 //Tijddiagram
     Route::get('/tijddiagram', [TijddiagramController::class, 'index'])->name('tijddiagram.index');
 
+
+//Profiles
+    Route::get('/profile', [ProfilesController::class, 'show'])->name('profiles.show');
+    Route::get('/profile/edit', [ProfilesController::class, 'edit'])->name('profiles.edit');
+    Route::put('/profile/update', [ProfilesController::class, 'update'])->name('profiles.update');
+    Route::delete('/profile/destroy', [ProfilesController::class, 'destroy'])->name('profiles.destroy');
+    Route::delete('/profile/index', [ProfilesController::class, 'index'])->name('profiles.index');
+
+//Users
 });

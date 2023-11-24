@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'roles_id', // Voeg roles_id toe aan mass assignable attributen
+
     ];
 
     /**
