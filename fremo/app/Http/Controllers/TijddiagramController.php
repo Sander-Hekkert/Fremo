@@ -7,28 +7,24 @@ use Illuminate\Http\Request;
 
 class TijddiagramController extends Controller
 {
-   /* public function store(Request $request)
+    public function index($project_id)
     {
-        // Validate and store the project...
+        $tijddiagramController = new Tijddiagram();
+        return view('tijddiagram.index', compact('project_id'));
+    }
 
-        // After successfully storing the project, redirect to wegdiagram.create
-        $project = new Projects(); // Assuming you have a new project instance
-
-        // Save the project to get its ID
-        $project->titel = $request->input('titel');
-        $project->users_id = auth()->id();
-        $project->datum_en_tijd_aangemaakt = now();
-        $project->status = '25%';
-        $project->save();
-
-        // Redirect to wegdiagram.create with the project_id parameter
-        return redirect()->route('wegdiagram.create', ['project_id' => $project->id])
-            ->with('success', 'Project successfully created!');
-    }*/
-    public function index()
+    public function store(Request $request)
     {
-        // Your logic to fetch and display projects goes here
-        $tijddiagram = Tijddiagram::all(); // Fetching all projects
-        return view('project.index', compact('projects'));
+        $request->validate([
+            'starttijd' => 'required',
+            'eindtijd' => 'required',
+        ]);
+
+        $tijddiagram = new Tijddiagram();
+        $tijddiagram->projects_id = auth()->id();
+        $tijddiagram->status = '75%';
+        $tijddiagram->save();
+
+        return redirect()->route('tijddiagram.index', ['project_id' => $request->input('project_id')])->with('success', 'Tijddiagram successfully created!');
     }
 }

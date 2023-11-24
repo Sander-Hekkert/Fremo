@@ -68,4 +68,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/users/{id}/edit', [UsersController::class, 'editUser'])->name('users.edit');
     Route::delete('/users/{id}/delete', [UsersController::class, 'deleteUser'])->name('users.delete');
     Route::put('/users/{id}/update', [UsersController::class, 'updateUser'])->name('users.update');
+
+//Tijddiagram
+Route::get('/tijddiagram/{project_id}', [TijddiagramController::class, 'index'])->name('tijddiagram.index');
 });

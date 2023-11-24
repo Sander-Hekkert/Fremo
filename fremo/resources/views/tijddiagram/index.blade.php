@@ -1,15 +1,10 @@
-<!-- create.blade.php -->
+<!-- index.blade.php -->
 @extends('layouts.app')
 
 @section('content')
     <div class="container">
-        <form action="{{ route('tijdiagram.store') }}" method="POST">
-            @csrf
-            <div class="form-group">
-                <label for="titel">Titel:</label>
-                <input type="text" name="titel" id="titel" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-primary">Opslaan</button>
-        </form>
+        <h1>Tijddiagram</h1>
+
+        <p>Project ID: {{ $project_id }}</p>
     </div>
 @endsection
