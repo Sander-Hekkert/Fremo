@@ -16,4 +16,10 @@
 
         <button type="submit" class="btn btn-primary">Opslaan</button>
     </form>
+
+    <hr>
+
+    <a href="{{ route('wegdiagram.downloadPDF', ['project_id' => $project_id]) }}" class="btn btn-success">
+        Download PDF
+    </a>
 @endsection

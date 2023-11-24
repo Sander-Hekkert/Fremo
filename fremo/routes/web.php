@@ -75,7 +75,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/tijddiagram/{project_id}', [TijddiagramController::class, 'index'])->name('tijddiagram.index');
 
 //Pdf
-    Route::get('/download-pdf', '@tijddiagramPDF');
-    Route::get('/download-pdf', '@TijdtafelPDF');
-    Route::get('/download-pdf', '@wegdiagramPDF');
+    Route::get('/download-pdf/{project_id}', 'TijdtafelController@downloadPDF')->name('tijdtafel.downloadPDF');
+    Route::get('/download-pdf/{project_id}', 'TijddiagramController@downloadPDF')->name('Tijddiagram.downloadPDF');
+    Route::get('/download-pdf/{project_id}', 'WegdiagramController@downloadPDF')->name('wegdiagram.downloadPDF');
 });

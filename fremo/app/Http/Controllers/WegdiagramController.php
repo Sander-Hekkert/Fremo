@@ -1,6 +1,5 @@
 <?php
 namespace App\Http\Controllers;
-
 use App\Models\Wegdiagram;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -31,9 +30,20 @@ class WegdiagramController extends Controller
     }
     public function downloadPDF()
     {
-        $data = []; // gegevens die je naar de weergave doorgeeft
+        // Haal de gegevens op die je in de PDF wilt opnemen (bijvoorbeeld projectgegevens, wegdiagramgegevens, enz.)
+        $project = Project::find($project_id); // Veronderstel dat je een Project-model hebt
 
-        $pdf = PDF::loadView('project.index', $data);
-        return $pdf->download('project_overview.pdf');
+        $wegdiagrams = Wegdiagram::where('projects_id', $project_id)->get(); // Veronderstel dat je een Wegdiagram-model hebt
+
+        $data = [
+            'project' => $project,
+            'wegdiagrams' => $wegdiagrams,
+        ];
+
+        // Laad de PDF-weergave en geef de gegevens door
+        $pdf = PDF::loadView('wegdiagram.pdf', $data);
+
+        // Download de PDF
+        return $pdf->download('wegdiagram_overview.pdf');
     }
 }
