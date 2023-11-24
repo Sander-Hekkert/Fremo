@@ -84,10 +84,14 @@
                                 </li>
                             @endif
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
+                            <a class="dropdown-item" href="{{ route('profiles.show') }}">
+                                <div class="profile-circle">{{ Auth::user()->name[0] }}</div>
+                                <span>{{ Auth::user()->name }}</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="left: auto; right: 0;">
+                                <a class="dropdown-item" href="{{ route('profiles.show') }}">Profiel</a>
+                            </div>
+                        </li>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -114,3 +118,16 @@
     </div>
 </body>
 </html>
+<style>
+    .profile-circle {
+        width: 40px;
+        height: 40px;
+        background-color: #007bff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-weight: bold;
+    }
+</style>

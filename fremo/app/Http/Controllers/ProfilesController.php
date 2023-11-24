@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProfilesController extends Controller
@@ -14,7 +14,7 @@ class ProfilesController extends Controller
     public function show()
     {
         $loggedInUser = auth()->user();
-        return view('profiles.show', compact('loggedInUser'));
+        return view('profiles.index', compact('loggedInUser'));
     }
 
     /**
@@ -40,7 +40,7 @@ class ProfilesController extends Controller
         $loggedInUser->update($request->all());
         return redirect()->route('profiles.show');
     }
-
+    
     /**
      * Remove the authenticated user's profile.
      *
@@ -51,5 +51,12 @@ class ProfilesController extends Controller
         $loggedInUser = auth()->user();
         $loggedInUser->delete();
         return redirect()->route('home'); // Or any other desired destination after deletion
+    }
+    public function index()
+    {
+        // Add logic to fetch and display a list of user profiles
+        $userProfiles = User::all(); // Modify this line based on your data retrieval logic
+
+        return view('profiles.show', compact('userProfiles'));
     }
 }

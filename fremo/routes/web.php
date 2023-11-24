@@ -60,9 +60,12 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/profile/edit', [ProfilesController::class, 'edit'])->name('profiles.edit');
     Route::put('/profile/update', [ProfilesController::class, 'update'])->name('profiles.update');
     Route::delete('/profile/destroy', [ProfilesController::class, 'destroy'])->name('profiles.destroy');
-    Route::delete('/profile/index', [ProfilesController::class, 'index'])->name('profiles.index');
+    Route::get('/profile/index', [ProfilesController::class, 'index'])->name('profiles.index');
 
 //Users
-    Route::get('/users', [UsersController::class, 'index'])->name('users.index'); 
-    Route::get('/users/{user}/edit', [UsersController::class, 'edit'])->name('users.edit');
+    Route::get('/users', [UsersIdController::class, 'index'])->name('users.index');
+    Route::post('/users/{id}/change-role', [UsersIdController::class, 'changeRole'])->name('users.changeRole');
+    Route::get('/users/{id}/edit', [UsersIdController::class, 'editUser'])->name('users.edit');
+    Route::delete('/users/{id}/delete', [UsersIdController::class, 'deleteUser'])->name('users.delete');
+    Route::put('/users/{id}/update', [UsersIdController::class, 'updateUser'])->name('users.update');
 });

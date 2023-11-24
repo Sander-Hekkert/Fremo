@@ -9,8 +9,8 @@
                     <div class="card-body">
                         <p><strong>Naam:</strong> {{ $loggedInUser->name }}</p>
                         <p><strong>Email:</strong> {{ $loggedInUser->email }}</p> 
-                        <a href="{{ route('profiles.edit') }}" class="btn btn-primary">Profiel bewerken</a>
-                        <form action="{{ route('profiles.destroy') }}" method="POST">
+                        <a href="{{ route('profile.edit') }}" class="btn btn-primary">Profiel bewerken</a>
+                        <form action="{{ route('profile.destroy') }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Profiel verwijderen</button>
