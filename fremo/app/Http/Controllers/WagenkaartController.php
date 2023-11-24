@@ -8,6 +8,6 @@ class WagenkaartController extends Controller
 {
     public function showWagenkaart()
     {
-        return view('wagenkaart');
+        return view('wagenkaart.index');
     }
 }
