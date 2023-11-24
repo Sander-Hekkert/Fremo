@@ -50,6 +50,8 @@ Route::group(['middleware' => 'auth'], function(){
 
 //Dienstregeling
     Route::get('/dienstregeling', [DienstregelingController::class, 'index'])->name('dienstregeling');
+    Route::get('/dienstregeling/{id}/edit', [DienstregelingController::class, 'edit'])->name('dienstregeling.edit');
+
 
 //Tijddiagram
     Route::get('/tijddiagram', [TijddiagramController::class, 'index'])->name('tijddiagram.index');
