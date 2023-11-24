@@ -1,4 +1,7 @@
- @php
+@extends('layouts.app') <!-- Assuming you have a layout file -->
+
+@section('content')
+@php
     $usersByRoleArray = $usersByRole->toArray();
 @endphp
 
@@ -51,3 +54,4 @@
             @endforeach
         @endif
     </div>
+@endsection
