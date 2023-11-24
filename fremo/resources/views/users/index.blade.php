@@ -1,11 +1,10 @@
  @php
-        $usersArray = $users->toArray();
-    @endphp
+    $usersByRoleArray = $usersByRole->toArray();
+@endphp
 
-    <div class="d-flex flex-column align-items-center">
-
-        @if(array_key_exists(2, $usersArray))
-            <h2>Gebruikers</h2>
+    @if(array_key_exists(2, $usersByRoleArray))
+        <h2>Gebruikers</h2>
+        @foreach($usersByRole[2] as $user)
             @foreach($users[2] as $user) <!-- Loop door gebruikers met roles_id 2 -->
                 <div class="card w-50 mb-3">
                     <div class="card-body d-flex justify-content-between align-items-start">
@@ -24,9 +23,10 @@
                     </div>
                 </div>
             @endforeach
-        @endif
+        @endforeach    
+    @endif
 
-        @if(array_key_exists(2, $usersArray))
+        @if(array_key_exists(2, $usersByRoleArray))
             <h2>Goedkeuren/Afkeuren</h2>
             @foreach($users[2] as $user) <!-- Loop door gebruikers met roles_id 2 -->
                 <div class="card w-50 mb-3">
