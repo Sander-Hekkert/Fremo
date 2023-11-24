@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Tijddiagram;
+use Barryvdh\DomPDF\Facade as PDF;
 
 use Illuminate\Http\Request;
 
@@ -26,5 +27,12 @@ class TijddiagramController extends Controller
         $tijddiagram->save();
 
         return redirect()->route('tijddiagram.index', ['project_id' => $request->input('project_id')])->with('success', 'Tijddiagram successfully created!');
+    }
+    public function downloadPDF()
+    {
+        $data = []; // gegevens die je naar de weergave doorgeeft
+
+        $pdf = PDF::loadView('project.index', $data);
+        return $pdf->download('project_overview.pdf');
     }
 }

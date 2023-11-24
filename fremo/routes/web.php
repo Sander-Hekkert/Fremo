@@ -72,5 +72,10 @@ Route::group(['middleware' => 'auth'], function(){
     Route::put('/users/{id}/update', [UsersController::class, 'updateUser'])->name('users.update');
 
 //Tijddiagram
-Route::get('/tijddiagram/{project_id}', [TijddiagramController::class, 'index'])->name('tijddiagram.index');
+    Route::get('/tijddiagram/{project_id}', [TijddiagramController::class, 'index'])->name('tijddiagram.index');
+
+//Pdf
+    Route::get('/download-pdf', '@tijddiagramPDF');
+    Route::get('/download-pdf', '@TijdtafelPDF');
+    Route::get('/download-pdf', '@wegdiagramPDF');
 });

@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Wegdiagram;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class WegdiagramController extends Controller
 {
@@ -27,5 +28,12 @@ class WegdiagramController extends Controller
         $wegdiagram->save();
 
         return redirect()->route('tijddiagram.index', ['project_id' => $request->input('project_id')])->with('success', 'Wegdiagram successfully created!');
+    }
+    public function downloadPDF()
+    {
+        $data = []; // gegevens die je naar de weergave doorgeeft
+
+        $pdf = PDF::loadView('project.index', $data);
+        return $pdf->download('project_overview.pdf');
     }
 }
