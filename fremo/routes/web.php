@@ -12,7 +12,7 @@ use App\Http\Controllers\TijddiagramController;
 use App\Http\Controllers\TijdtafelController;
 use App\Http\Controllers\VrachtkaartController;
 use App\Http\Controllers\ProfilesController;
-
+use App\Http\Controllers\UsersController;
 
 Auth::routes();
 
@@ -63,4 +63,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::delete('/profile/index', [ProfilesController::class, 'index'])->name('profiles.index');
 
 //Users
+    Route::get('/users', [UsersController::class, 'index'])->name('users.index'); 
+    Route::get('/users/{user}/edit', [UsersController::class, 'edit'])->name('users.edit');
 });
