@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Models\Wegdiagram;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
+use App\Models\Project;
 
 class WegdiagramController extends Controller
 {
