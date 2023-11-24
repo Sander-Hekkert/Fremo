@@ -9,15 +9,17 @@ class UsersController extends Controller
 {
     public function index()
     {
-        $usersByRole = User::all()->groupBy('roles_id');
+        // Assuming you have a "roles" relationship defined in your User model
+        $usersByRole = User::with('roles')->get()->groupBy('roles_id');
         return view('users.index', compact('usersByRole'));
     }
 
-    public function changeRole($id)
+    public function changeRole($id, $newRoleId)
     {
         $users = User::find($id);
-        $users->roles_id = 2;
-        $users->save();
+        
+        // Assuming you have a "roles" relationship defined in your User model
+        $users->roles()->sync([$newRoleId]);
 
         return redirect()->back();
     }
