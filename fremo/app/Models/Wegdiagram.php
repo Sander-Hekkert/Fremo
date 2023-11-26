@@ -12,7 +12,6 @@ class Wegdiagram extends Model
 
     protected $fillable = [
         'projects_id',
-        'users_id',
         'starttijd',
         'eindtijd',
         'status',

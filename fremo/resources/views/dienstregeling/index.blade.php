@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="container-fluid">
         <div class="row g-0">
@@ -17,13 +16,14 @@
                         <th>Aangemaakt op</th>
                         <th>Laatst geopend</th>
                         <th>Status</th>
-                        <th>Acties</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach ($projects as $project)
                         <tr>
                             <td>{{ $project->titel }}</td>
+                            <td>{{ $project->created_at }}</td>
+                            <td>{{ $project->updated_at }}</td>
                             <td>{{ $project->created_at->format('d-m-Y H:i:s') }}</td>
                             <td>{{ $project->updated_at->format('d-m-Y H:i:s') }}</td>
                             <td>
@@ -32,11 +32,6 @@
                                 @else
                                     {{ $project->status }}
                                 @endif
-                            </td>
-                            <td>
-                                <a href="{{ route('dienstregeling.edit', ['id' => $project->id]) }}" class="btn btn-primary">
-                                    Bewerken
-                                </a>
                             </td>
                         </tr>
                     @endforeach

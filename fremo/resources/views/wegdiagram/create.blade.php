@@ -14,6 +14,20 @@
         <label for="eindtijd">Eindtijd:</label>
         <input type="datetime-local" name="eindtijd" required>
 
+        <label for="trein">Selecteer een trein:</label>
+        <select name="trein">
+            @foreach($treinen as $trein)
+                <option value="{{ $trein->id }}">{{ $trein->naam }}</option>
+            @endforeach
+        </select>
+
+        <label for="station">Selecteer een station:</label>
+        <select name="station">
+            @foreach($stations as $station)
+                <option value="{{ $station->id }}">{{ $station->naam }}</option>
+            @endforeach
+        </select>
+
         <button type="submit" class="btn btn-primary">Opslaan</button>
     </form>
 

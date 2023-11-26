@@ -12,6 +12,7 @@ class Projects extends Model
     protected $fillable = [
         'titel',
         'users_id',
+        'status',
     ];
 
     public function user()
