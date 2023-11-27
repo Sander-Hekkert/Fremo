@@ -1,10 +1,13 @@
 <?php
-// app/Role.php
-namespace App;
+
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name',
+    ];
+
 }

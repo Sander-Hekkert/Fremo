@@ -8,11 +8,15 @@ use Illuminate\Http\Request;
 class UsersController extends Controller
 {
     public function index()
-    {
-        // Assuming you have a "roles" relationship defined in your User model
-        $usersByRole = User::with('roles')->get()->groupBy('roles_id');
-        return view('users.index', compact('usersByRole'));
-    }
+{
+    // Assuming you have a "roles" relationship defined in your User model
+    $usersByRole = User::get()->groupBy(function ($user) {
+        // Je moet hier je eigen logica toevoegen om de rol-ID te bepalen
+        return $user->role_id;
+    });
+
+    return view('users.index', compact('usersByRole'));
+}
 
     public function changeRole($id, $newRoleId)
     {
