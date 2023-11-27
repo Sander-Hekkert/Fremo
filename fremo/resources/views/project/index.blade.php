@@ -2,14 +2,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <form action="{{ route('project.store') }}" method="POST">
+    <div class="container d-flex justify-content-center align-items-center" style="height: 50vh;">
+        <form action="{{ route('project.store') }}" method="POST" class="w-50">
             @csrf
-            <div class="form-group">
-                <label for="titel">Titel:</label>
-                <input type="text" name="titel" id="titel" class="form-control">
+            <div class="form-group text-center">
+                <label for="titel" class="mb-3 fw-bold fs-4">Titel voor het project:</label>
+                <input type="text" name="titel" id="titel" class="form-control border border-3 border-primary">
+                <button type="submit" class="btn btn-warning mt-3 text-white rounded-5">Sla op</button>
             </div>
-            <button type="submit" class="btn btn-primary">Opslaan</button>
         </form>
     </div>
 @endsection
