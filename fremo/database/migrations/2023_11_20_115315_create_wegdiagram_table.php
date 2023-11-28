@@ -16,8 +16,8 @@ class CreateWegdiagramTable extends Migration
         Schema::create('wegdiagram', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('projects_id');
-            $table->dateTime('starttijd');
-            $table->dateTime('eindtijd');
+            $table->time('starttijd');
+            $table->time('eindtijd');
             $table->string('status');
             $table->timestamps();
         });

@@ -10,60 +10,24 @@
         <input type="text" name="naam_bezitter" required>
         <br>
 
-        <label for="afkorting">Afkorting:</label>
-        <input type="text" name="afkorting" required>
-        <br>
-
         <label for="nummer_module">Nummer Module:</label>
         <input type="text" name="nummer_module" required>
-        <br>
-
-        <label for="naam_thema_module">Naam Thema Module:</label>
-        <input type="text" name="naam_thema_module" required>
-        <br>
-
-        <label for="lengte_1">Lengte 1:</label>
-        <input type="text" name="lengte_1" required>
-        <br>
-
-        <label for="lengte_2">Lengte 2:</label>
-        <input type="text" name="lengte_2" required>
-        <br>
-
-        <label for="lengte_3">Lengte 3:</label>
-        <input type="text" name="lengte_3" required>
         <br>
 
         <label for="e_f">E-F:</label>
         <input type="text" name="e_f" required>
         <br>
 
-        <label for="hoek">Hoek:</label>
-        <input type="text" name="hoek" required>
-        <br>
-
-        <label for="straal">Straal:</label>
-        <input type="text" name="straal" required>
-        <br>
-
-        <label for="type_eindprofiel_1">Type Eindprofiel 1:</label>
-        <input type="text" name="type_eindprofiel_1" required>
-        <br>
-
-        <label for="type_eindprofiel_2">Type Eindprofiel 2:</label>
-        <input type="text" name="type_eindprofiel_2" required>
-        <br>
-
-        <label for="bovenbouw_rails">Bovenbouw Rails:</label>
-        <input type="text" name="bovenbouw_rails" required>
-        <br>
-
         <label for="opmerkingen_bijzonderheden">Opmerkingen Bijzonderheden:</label>
         <textarea name="opmerkingen_bijzonderheden" required></textarea>
         <br>
 
-        <label for="aantal_sporen">Aantal Sporen:</label>
-        <input type="text" name="aantal_sporen" required>
+        <label for="aantal_sporen_begin">Aantal Sporen Begin:</label>
+        <input type="text" name="aantal_sporen_begin" required>
+        <br>
+
+        <label for="aantal_sporen_eind">Aantal Sporen Eind:</label>
+        <input type="text" name="aantal_sporen_eind" required>
         <br>
 
         <button type="submit">Create Module</button>

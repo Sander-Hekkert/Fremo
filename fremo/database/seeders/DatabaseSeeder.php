@@ -1,22 +1,17 @@
 <?php
 
+namespace Database\Seeders;
+
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class RolesTableSeeder extends Seeder
+class DatabaseSeeder extends Seeder
 {
-    public function run()
+    /**
+     * Seed the application's database.
+     */
+    public function run(): void
     {
-        // Clear existing data from the roles table
-        DB::table('roles')->truncate();
-
-        // Insert default roles
-        $roles = [
-            ['name' => 'Beheerder'],
-            ['name' => 'Gebruiker'],
-            ['name' => 'Anoniem'],
-        ];
-
-        DB::table('roles')->insert($roles);
+        $this->call(RolesTableSeeder::class);
     }
 }
