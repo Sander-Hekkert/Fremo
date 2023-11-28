@@ -36,6 +36,9 @@
                                 <a href="{{ route('dienstregeling.edit', ['id' => $project->id]) }}" class="btn btn-primary">
                                     Bewerken
                                 </a>
+                                <a href="{{ route('dienstregeling.delete', ['id' => $project->id]) }}" class="btn btn-danger">
+                                    Verwijder
+                                </a>
                             </td>
                         </tr>
                     @endforeach
