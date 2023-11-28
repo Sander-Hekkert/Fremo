@@ -13,15 +13,16 @@ use App\Http\Controllers\TijdtafelController;
 use App\Http\Controllers\VrachtkaartController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ProjecteditController;
 
 
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function(){
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('roles:1,2');
-    Route::get('/wagenkaart', [WagenkaartController::class, 'showWagenkaart'])->name('wagenkaart')->middleware('roles:1,2');
-    Route::get('/module', [ModuleController::class, 'showModule'])->name('module')->middleware('roles:1,2');
-    Route::get('/trein', [TreinController::class, 'showTrein'])->name('trein')->middleware('roles:1,2');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/wagenkaart', [WagenkaartController::class, 'showWagenkaart'])->name('wagenkaart');
+    Route::get('/module', [ModuleController::class, 'showModule'])->name('module');
+    Route::get('/trein', [TreinController::class, 'showTrein'])->name('trein');
 
 //Module
     Route::get('/module', [ModuleController::class, 'index'])->name('module.index');
@@ -52,8 +53,12 @@ Route::group(['middleware' => 'auth'], function(){
 //Dienstregeling
     Route::get('/dienstregeling', [DienstregelingController::class, 'index'])->name('dienstregeling');
     Route::get('/dienstregeling/{id}/edit', [DienstregelingController::class, 'edit'])->name('dienstregeling.edit');
+    Route::get('/dienstregeling/{id}/delete', [DienstregelingController::class, 'delete'])->name('dienstregeling.delete');
 
 
+//Edit Project
+    Route::get('/editprojecttitle/{id}', [ProjecteditController::class, 'title'])->name('projectedit.title');
+    Route::post('/project/update/{id}', [ProjecteditController::class, 'update'])->name('project.update');
 //Tijddiagram
     Route::get('/tijddiagram', [TijddiagramController::class, 'index'])->name('tijddiagram.index');
 
@@ -66,7 +71,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/profile/index', [ProfilesController::class, 'index'])->name('profiles.index');
 
 //Users
-    Route::get('/users', [UsersController::class, 'index'])->name('users.index')->middleware('roles:1');
+    Route::get('/users', [UsersController::class, 'index'])->name('users.index');
     Route::post('/change-role/{id}', [UsersController::class, 'changeRole'])->name('changeRole');
     Route::get('/edit-user/{id}', [UsersController::class, 'editUser'])->name('editUser');
     Route::delete('/delete-user/{id}', [UsersController::class, 'deleteUser'])->name('deleteUser');
