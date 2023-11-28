@@ -15,6 +15,7 @@ class CreateModulesTable extends Migration
         Schema::create('modules', function (Blueprint $table) {
             $table->id();
             $table->string('naam_bezitter');
+            $table->string('naam_module');
             $table->string('nummer_module');
             $table->string('e_f');
             $table->text('opmerkingen_bijzonderheden')->nullable();

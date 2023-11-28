@@ -24,6 +24,7 @@
             @foreach ($modules as $module)
                 <tr>
                     <td>{{ $module->naam_bezitter }}</td>
+                    <td>{{ $module->naam }}</td>
                     <td>{{ $module->nummer_module }}</td>
                     <td>{{ $module->e_f }}</td>
                     <td>{{ $module->opmerkingen_bijzonderheden }}</td>

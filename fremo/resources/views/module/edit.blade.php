@@ -14,6 +14,11 @@
             </div>
 
             <div class="mb-3">
+                <label for="naam_module" class="form-label">Naam Module:</label>
+                <input type="text" name="naam_module" value="{{ $module->naam_module }}" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
                 <label for="nummer_module" class="form-label">Nummer Module:</label>
                 <input type="text" name="nummer_module" value="{{ $module->nummer_module }}" class="form-control" required>
             </div>

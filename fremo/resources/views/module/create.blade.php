@@ -13,6 +13,11 @@
             </div>
 
             <div class="mb-3">
+                <label for="naam" class="form-label">Naam Module:</label>
+                <input type="text" name="naam" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
                 <label for="nummer_module" class="form-label">Nummer Module:</label>
                 <input type="text" name="nummer_module" class="form-control" required>
             </div>
