@@ -1,35 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Create New Trein</h1>
 
-    <form action="{{ route('trein.store') }}" method="POST">
-        @csrf
+    <div class="container mt-2">
+        <h1>Create New Trein</h1>
 
-        <label for="naam_bezitter">Naam Bezitter:</label>
-        <input type="text" name="naam_bezitter" required>
-        <br>
+        <form action="{{ route('trein.store') }}" method="POST" class="mt-4">
+            @csrf
 
-        <label for="afkorting">Afkorting:</label>
-        <input type="text" name="afkorting" required>
-        <br>
+            <div class="mb-2">
+                <label for="naam_bezitter" class="form-label">Naam Bezitter:</label>
+                <input type="text" name="naam_bezitter" class="form-control" required>
+            </div>
 
-        <label for="nummer_trein">Nummer Trein:</label>
-        <input type="text" name="nummer_trein" required>
-        <br>
+            <div class="mb-2">
+                <label for="afkorting" class="form-label">Afkorting:</label>
+                <input type="text" name="afkorting" class="form-control" required>
+            </div>
 
-        <label for="code_trein">Code Trein:</label>
-        <input type="text" name="code_trein" required>
-        <br>
+            <div class="mb-2">
+                <label for="nummer_trein" class="form-label">Nummer Trein:</label>
+                <input type="text" name="nummer_trein" class="form-control" required>
+            </div>
 
-        <label for="omschrijving">Omschrijving:</label>
-        <input type="text" name="omschrijving" required>
-        <br>
+            <div class="mb-2">
+                <label for="code_trein" class="form-label">Code Trein:</label>
+                <input type="text" name="code_trein" class="form-control" required>
+            </div>
 
-        <label for="snelheid">Snelheid:</label>
-        <input type="text" name="snelheid" required>
-        <br>
+            <div class="mb-2">
+                <label for="omschrijving" class="form-label">Omschrijving:</label>
+                <input type="text" name="omschrijving" class="form-control" required>
+            </div>
 
-        <button type="submit">Create Trein</button>
-    </form>
+            <div class="mb-2">
+                <label for="snelheid" class="form-label">Snelheid:</label>
+                <input type="text" name="snelheid" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create Trein</button>
+        </form>
+    </div>
 @endsection
+
