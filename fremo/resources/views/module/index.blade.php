@@ -12,6 +12,7 @@
             <thead>
             <tr>
                 <th>Naam Bezitter</th>
+                <th>Naam Module</th>
                 <th>Nummer Module</th>
                 <th>E+F</th>
                 <th>Opmerkingen Bijzonderheden</th>

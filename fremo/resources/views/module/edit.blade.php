@@ -14,8 +14,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="naam_module" class="form-label">Naam Module:</label>
-                <input type="text" name="naam_module" value="{{ $module->naam_module }}" class="form-control" required>
+                <label for="naam" class="form-label">Naam Module:</label>
+                <input type="text" name="naam" value="{{ $module->naam }}" class="form-control" required>
             </div>
 
             <div class="mb-3">
@@ -24,7 +24,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="e_f" class="form-label">E-F:</label>
+                <label for="e_f" class="form-label">E+F:</label>
                 <input type="text" name="e_f" value="{{ $module->e_f }}" class="form-control" required>
             </div>
 

@@ -23,13 +23,13 @@
             </div>
 
             <div class="mb-3">
-                <label for="e_f" class="form-label">E-F:</label>
+                <label for="e_f" class="form-label">E+F:</label>
                 <input type="text" name="e_f" class="form-control" required>
             </div>
 
             <div class="mb-3">
                 <label for="opmerkingen_bijzonderheden" class="form-label">Opmerkingen Bijzonderheden:</label>
-                <textarea name="opmerkingen_bijzonderheden" class="form-control" rows="3" required></textarea>
+                <textarea name="opmerkingen_bijzonderheden" class="form-control" rows="3"></textarea>
             </div>
 
             <div class="mb-3">

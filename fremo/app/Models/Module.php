@@ -11,7 +11,7 @@ class Module extends Model
 
     protected $fillable = [
         'naam_bezitter',
-        'naam_module' ,
+        'naam',
         'nummer_module',
         'e_f',
         'hoek',

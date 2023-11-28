@@ -11,15 +11,15 @@
         <input type="text" name="naam_bezitter" value="{{ $module->naam_bezitter }}" required>
         <br>
 
-        <label for="naam_module">Naam Module:</label>
-        <input type="text" name="naam_module" value="{{ $module->naam_module }}" required>
+        <label for="naam">Naam Module:</label>
+        <input type="text" name="naam" value="{{ $module->naam }}" required>
         <br>
 
         <label for="nummer_module">Nummer Module:</label>
         <input type="text" name="nummer_module" value="{{ $module->nummer_module }}" required>
         <br>
 
-        <label for="e_f">E-F:</label>
+        <label for="e_f">E+F:</label>
         <input type="text" name="e_f" value="{{ $module->e_f }}" required>
         <br>
 
