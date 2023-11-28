@@ -24,10 +24,10 @@
         <br>
 
         <label for="aantal_sporen_begin">Aantal Sporen Begin:</label>
-        <input type="text" name="aantal_sporen_begin" value="{{ $module->aantal_sporen }}" required>
+        <input type="text" name="aantal_sporen_begin" value="{{ $module->aantal_sporen_begin }}" required>
         <br>
 
-       <label for="aantal_sporen_eind">Aantal Sporen Begin:</label>
+       <label for="aantal_sporen_eind">Aantal Sporen Eind:</label>
         <input type="text" name="aantal_sporen_eind" value="{{ $module->aantal_sporen_eind }}" required>
         <br>
 
