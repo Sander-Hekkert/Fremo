@@ -17,7 +17,6 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->string('titel');
             $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
             $table->timestamps();
             $table->string('status')->default('pending');
         });

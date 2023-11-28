@@ -124,6 +124,12 @@
       <path value="$PROJECT_DIR$/fremo/vendor/tijsverkoyen/css-to-inline-styles" />
       <path value="$PROJECT_DIR$/fremo/vendor/dragonmantank/cron-expression" />
       <path value="$PROJECT_DIR$/fremo/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/fremo/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/fremo/vendor/barryvdh/laravel-dompdf" />
+      <path value="$PROJECT_DIR$/fremo/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/fremo/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/fremo/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/fremo/vendor/masterminds/html5" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

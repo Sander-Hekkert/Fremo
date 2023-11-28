@@ -8,6 +8,12 @@
       <sourceFolder url="file://$MODULE_DIR$/fremo/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/fremo/vendor/sabberworm/php-css-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/fremo/vendor/barryvdh/laravel-dompdf" />
+      <excludeFolder url="file://$MODULE_DIR$/fremo/vendor/phenx/php-font-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/fremo/vendor/phenx/php-svg-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/fremo/vendor/dompdf/dompdf" />
+      <excludeFolder url="file://$MODULE_DIR$/fremo/vendor/masterminds/html5" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

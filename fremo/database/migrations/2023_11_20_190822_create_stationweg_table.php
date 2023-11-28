@@ -18,7 +18,6 @@ class CreateStationwegTable extends Migration
             $table->unsignedBigInteger('station_id');
             $table->unsignedBigInteger('wegdiagram_id');
             $table->integer('positie');
-
             $table->timestamps();
         });
     }

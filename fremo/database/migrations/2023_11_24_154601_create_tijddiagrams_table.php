@@ -11,10 +11,7 @@ class CreateTijddiagramsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('projects_id');
             $table->string('status');
-            // Add other columns as needed
             $table->timestamps();
-
-            $table->foreign('projects_id')->references('id')->on('projects')->onDelete('cascade');
         });
     }
 

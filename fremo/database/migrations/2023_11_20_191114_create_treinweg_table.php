@@ -17,7 +17,6 @@ class CreateTreinwegTable extends Migration
             $table->id();
             $table->unsignedBigInteger('trein_id');
             $table->unsignedBigInteger('wegdiagram_id');
-
             $table->timestamps();
         });
     }
