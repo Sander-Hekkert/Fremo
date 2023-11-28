@@ -18,10 +18,10 @@ use App\Http\Controllers\UsersController;
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function(){
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/wagenkaart', [WagenkaartController::class, 'showWagenkaart'])->name('wagenkaart');
-    Route::get('/module', [ModuleController::class, 'showModule'])->name('module');
-    Route::get('/trein', [TreinController::class, 'showTrein'])->name('trein');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('roles:1,2');
+    Route::get('/wagenkaart', [WagenkaartController::class, 'showWagenkaart'])->name('wagenkaart')->middleware('roles:1,2');
+    Route::get('/module', [ModuleController::class, 'showModule'])->name('module')->middleware('roles:1,2');
+    Route::get('/trein', [TreinController::class, 'showTrein'])->name('trein')->middleware('roles:1,2');
 
 //Module
     Route::get('/module', [ModuleController::class, 'index'])->name('module.index');
@@ -66,7 +66,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/profile/index', [ProfilesController::class, 'index'])->name('profiles.index');
 
 //Users
-    Route::get('/users', [UsersController::class, 'index'])->name('users.index');
+    Route::get('/users', [UsersController::class, 'index'])->name('users.index')->middleware('roles:1');
     Route::post('/change-role/{id}', [UsersController::class, 'changeRole'])->name('changeRole');
     Route::get('/edit-user/{id}', [UsersController::class, 'editUser'])->name('editUser');
     Route::delete('/delete-user/{id}', [UsersController::class, 'deleteUser'])->name('deleteUser');

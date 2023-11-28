@@ -16,6 +16,7 @@
                         <th>Aangemaakt op</th>
                         <th>Laatst geopend</th>
                         <th>Status</th>
+                        <th>Acties</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -30,6 +31,11 @@
                                 @else
                                     {{ $project->status }}
                                 @endif
+                            </td>
+                            <td>
+                                <a href="{{ route('dienstregeling.edit', ['id' => $project->id]) }}" class="btn btn-primary">
+                                    Bewerken
+                                </a>
                             </td>
                         </tr>
                     @endforeach
