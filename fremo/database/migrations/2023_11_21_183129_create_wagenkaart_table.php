@@ -13,7 +13,28 @@ return new class extends Migration
     {
         Schema::create('wagenkaart', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('wagennummer');
+            $table->string('ii');
+            $table->string('iii');
+            $table->string('iv');
+            $table->string('uic_typ');
+            $table->string('beschreibung');
+            $table->string('lüp');
+            $table->string('achsstand');
+            $table->string('nutzlast');
+            $table->string('ladelänge');
+            $table->string('ladefläche');
+            $table->string('ladehinweise');
+            $table->string('modelbeschriftung');
+            $table->string('modellmerkmale');
+            $table->string('eigentümer');
+            $table->string('hersteller');
+            $table->string('radsätze');
+            $table->string('kupplungen');
+            $table->string('federpuffer');
+            $table->string('modell_lüp');
+            $table->string('modellgewicht');
+            $table->unsignedBigInteger('baujahr');
         });
     }
 
