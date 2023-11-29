@@ -19,6 +19,7 @@ class CreateWegdiagramTable extends Migration
             $table->time('starttijd');
             $table->time('eindtijd');
             $table->string('status');
+            $table->unsignedBigInteger('modules_id');
             $table->timestamps();
         });
     }

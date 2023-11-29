@@ -49,6 +49,7 @@ Route::group(['middleware' => 'auth'], function(){
 //Wegdiagram
     Route::get('/wegdiagram/create/{project_id}', [WegdiagramController::class, 'create'])->name('wegdiagram.create');
     Route::post('/wegdiagram/store', [WegdiagramController::class, 'store'])->name('wegdiagram.store');
+    Route::post('/wegdiagram/storeModule', [WegdiagramController::class, 'storeModule'])->name('wegdiagram.storeModule');
 
 //Dienstregeling
     Route::get('/dienstregeling', [DienstregelingController::class, 'index'])->name('dienstregeling');

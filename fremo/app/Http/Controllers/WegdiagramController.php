@@ -1,36 +1,45 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Models\Wegdiagram;
+use App\Models\Stationweg; // Import the Stationweg model
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 use App\Models\Project;
 use App\Models\Trein;
 use App\Models\Module;
 
-
 class WegdiagramController extends Controller
 {
     public function create($project_id)
     {
         $treinen = Trein::all();
-        $stations = Module::all();
+        $modules = Module::all();
 
-        return view('wegdiagram.create', compact('project_id', 'treinen', 'stations'));
+        // Ophalen van geselecteerde modules_id
+        $selectedModules = Wegdiagram::where('projects_id', $project_id)->pluck('modules_id')->toArray();
+
+        return view('wegdiagram.create', compact('project_id', 'treinen', 'modules', 'selectedModules'));
     }
+
     public function store(Request $request)
     {
         $request->validate([
             'starttijd' => 'required',
             'eindtijd' => 'required',
         ]);
+
         $wegdiagram = new Wegdiagram();
         $wegdiagram->projects_id = auth()->id();
         $wegdiagram->starttijd = $request->input('starttijd');
         $wegdiagram->eindtijd = $request->input('eindtijd');
         $wegdiagram->status = '50%';
         $wegdiagram->save();
+
         return redirect()->route('tijddiagram.index', ['project_id' => $request->input('project_id')])->with('success', 'Wegdiagram successfully created!');
     }
+
     public function downloadPDF($project_id)
     {
         // Haal de gegevens op die je in de PDF wilt opnemen (bijvoorbeeld projectgegevens, wegdiagramgegevens, treinen, stations, enz.)
@@ -51,5 +60,23 @@ class WegdiagramController extends Controller
 
         // Download de PDF
         return $pdf->download('wegdiagram_overview.pdf');
+    }
+
+    public function storeModule(Request $request)
+    {
+        $request->validate([
+            'project_id' => 'required',
+            'module_id' => 'required',
+        ]);
+
+        $stationweg = new Stationweg();
+        $stationweg->project_id = $request->project_id;
+        $stationweg->module_id = $request->module_id;
+        $stationweg->save();
+
+        // Add a debugging statement
+        \Log::info('Stationweg added: ' . $stationweg->id . ', ' . $stationweg->module_id);
+
+        return response()->json(['module_name' => $stationweg->module->naam]);
     }
 }
