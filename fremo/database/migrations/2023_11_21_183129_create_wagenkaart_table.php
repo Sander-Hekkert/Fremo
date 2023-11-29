@@ -35,6 +35,7 @@ return new class extends Migration
             $table->string('modell_lüp');
             $table->string('modellgewicht');
             $table->unsignedBigInteger('baujahr');
+            // Hier moet nog een foto in worden toegevoegd
         });
     }
 
