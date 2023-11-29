@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('wagenkaart', function (Blueprint $table) {
+        Schema::create('wagenkaarts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('wagennummer');
             $table->string('ii');
@@ -35,7 +35,7 @@ return new class extends Migration
             $table->string('modell_lüp');
             $table->string('modellgewicht');
             $table->unsignedBigInteger('baujahr');
-            // Hier moet nog een foto in worden toegevoegd
+            $table->string('foto');
         });
     }
 

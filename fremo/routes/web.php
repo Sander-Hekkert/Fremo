@@ -14,7 +14,8 @@ use App\Http\Controllers\VrachtkaartController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProjecteditController;
-
+use App\Http\Controllers\WegdiagrameditController;
+use App\Http\Controllers\TijddiagrameditController;
 
 Auth::routes();
 
@@ -70,7 +71,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/tijddiagram/update/{id}', [TijddiagrameditController::class, 'update'])->name('tijddiagram.update');
 
 //Tijddiagram
-    Route::get('/tijddiagram', [TijddiagramController::class, 'index'])->name('tijddiagram.index');
+    Route::get('/tijddiagram/{project_id}', [TijddiagramController::class, 'index'])->name('tijddiagram.index');
 
 //Profiles
     Route::get('/profile', [ProfilesController::class, 'show'])->name('profiles.show');
@@ -86,8 +87,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::delete('/delete-user/{id}', [UsersController::class, 'deleteUser'])->name('deleteUser');
     Route::post('/update-user/{id}', [UsersController::class, 'updateUser'])->name('updateUser');
 
-//Tijddiagram
-    Route::get('/tijddiagram/{project_id}', [TijddiagramController::class, 'index'])->name('tijddiagram.index');
+//Wagenkaart
+Route::post('wagenkaart', [WagenkaartController::class, 'store'])->name('wagenkaart.store');
 
 //Pdf
     Route::get('/download-pdf-wegdiagram/{project_id}', 'WegdiagramController@downloadPDF')->name('wegdiagram.downloadPDF');
