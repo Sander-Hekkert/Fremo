@@ -23,6 +23,11 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="password">{{ __('Wachtwoord') }}:</label>
+                                <input type="text" name="password" id="password" value="{{ $loggedInUser->password }}" class="form-control">
+                            </div>
+
+                            <div class="form-group">
                                 <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
                             </div>
                         </form>

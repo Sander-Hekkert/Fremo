@@ -60,9 +60,17 @@ Route::group(['middleware' => 'auth'], function(){
 //Edit Project
     Route::get('/editprojecttitle/{id}', [ProjecteditController::class, 'title'])->name('projectedit.title');
     Route::post('/project/update/{id}', [ProjecteditController::class, 'update'])->name('project.update');
+
+//Edit Wegdiagram
+    Route::get('/editwegdiagram/{id}', [WegdiagrameditController::class, 'title'])->name('wegdiagram.edit');
+    Route::post('/wegdiagram/update/{id}', [WegdiagrameditController::class, 'update'])->name('wegdiagram.update');
+
+//Edit Tijddiagram
+    Route::get('/edittijddiagram/{id}', [TijddihagrameditController::class, 'title'])->name('tijddiagram.edit');
+    Route::post('/tijddiagram/update/{id}', [TijddiagrameditController::class, 'update'])->name('tijddiagram.update');
+
 //Tijddiagram
     Route::get('/tijddiagram', [TijddiagramController::class, 'index'])->name('tijddiagram.index');
-
 
 //Profiles
     Route::get('/profile', [ProfilesController::class, 'show'])->name('profiles.show');

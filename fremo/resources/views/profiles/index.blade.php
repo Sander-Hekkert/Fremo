@@ -13,11 +13,14 @@
                     <p><strong>Email:</strong> {{ $loggedInUser->email }}</p>
                 </div>
                 <div class="mb-3 text-center">
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editDetailsModal">
+                        Naam wijzigen
+                    </button>
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editDetailsModal2">
+                        Email wijzigen
+                    </button>
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
                         Wachtwoord wijzigen
-                    </button>
-                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editDetailsModal">
-                        Gegevens wijzigen
                     </button>
                 </div>
                 <form action="{{ route('profiles.destroy') }}" method="POST">
@@ -37,20 +40,40 @@
                     <h5 class="modal-title" id="changePasswordModalLabel">Wachtwoord wijzigen</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <!-- Add your change password form here -->
+                <div class="form-group">
+                    <label for="password">{{ __('Wachtwoord') }}:</label>
+                    <input type="text" name="password" id="password" value="{{ $loggedInUser->password }}" class="form-control">
+                </div>            
             </div>
         </div>
     </div>
 
-    <!-- Edit Details Modal -->
+    <!-- Edit Details Modal2 -->
     <div class="modal fade" id="editDetailsModal" tabindex="-1" aria-labelledby="editDetailsModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editDetailsModalLabel">Gegevens wijzigen</h5>
+                    <h5 class="modal-title" id="editDetailsModalLabel">Naam wijzigen</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <!-- Add your edit details form here -->
+                <div class="form-group">
+                    <label for="name">{{ __('Naam') }}:</label>
+                    <input type="text" name="name" id="name" value="{{ $loggedInUser->name }}" class="form-control">
+                </div>            
+            </div>
+        </div>
+    </div>
+        <div class="modal fade" id="editDetailsModal2" tabindex="-1" aria-labelledby="editDetailsModalLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editDetailsModalLabel2">Email wijzigen</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="form-group">
+                    <label for="email">{{ __('Email') }}:</label>
+                    <input type="email" name="email" id="email" value="{{ $loggedInUser->email }}" class="form-control">
+                </div>            
             </div>
         </div>
     </div>
