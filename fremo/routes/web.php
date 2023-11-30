@@ -16,6 +16,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProjecteditController;
 use App\Http\Controllers\WegdiagrameditController;
 use App\Http\Controllers\TijddiagrameditController;
+use App\Http\Livewire\ModuleList;
 
 Auth::routes();
 
@@ -92,5 +93,7 @@ Route::group(['middleware' => 'auth'], function(){
 //Wagenkaart
     Route::post('wagenkaart', [WagenkaartController::class, 'store'])->name('wagenkaart.store');
 
-//Stationweg
+//Modulelist
+    Route::get('/module-list/{project_id}', [ModuleList::class, 'show'])->name('module-list.show');
+    Livewire::component('module-list', ModuleList::class);
 });
