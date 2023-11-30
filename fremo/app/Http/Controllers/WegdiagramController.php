@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Wegdiagram;
 use App\Models\Stationweg; // Import the Stationweg model
 use Illuminate\Http\Request;
+//use Barryvdh\DomPDF\PDF; <-probeer deze ipv facade als die niet werkt
 use Barryvdh\DomPDF\Facade as PDF;
-use App\Models\Project;
+use App\Models\Projects;
 use App\Models\Trein;
 use App\Models\Module;
 
@@ -31,7 +32,7 @@ class WegdiagramController extends Controller
         ]);
 
         $wegdiagram = new Wegdiagram();
-        $wegdiagram->projects_id = auth()->id();
+        $wegdiagram->project_id = auth()->id();
         $wegdiagram->starttijd = $request->input('starttijd');
         $wegdiagram->eindtijd = $request->input('eindtijd');
         $wegdiagram->status = '50%';
@@ -43,7 +44,7 @@ class WegdiagramController extends Controller
     public function downloadPDF($project_id)
     {
         // Haal de gegevens op die je in de PDF wilt opnemen (bijvoorbeeld projectgegevens, wegdiagramgegevens, treinen, stations, enz.)
-        $project = Project::find($project_id);
+        $project = Projects::find($project_id);
         $wegdiagrams = Wegdiagram::where('projects_id', $project_id)->get();
         $treinen = Trein::all();
         $stations = Module::all();

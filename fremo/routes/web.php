@@ -67,7 +67,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/wegdiagram/update/{id}', [WegdiagrameditController::class, 'update'])->name('wegdiagram.update');
 
 //Edit Tijddiagram
-    Route::get('/edittijddiagram/{id}', [TijddihagrameditController::class, 'title'])->name('tijddiagram.edit');
+    Route::get('/edittijddiagram/{id}', [TijddiagrameditController::class, 'title'])->name('tijddiagram.edit');
     Route::post('/tijddiagram/update/{id}', [TijddiagrameditController::class, 'update'])->name('tijddiagram.update');
 
 //Tijddiagram
