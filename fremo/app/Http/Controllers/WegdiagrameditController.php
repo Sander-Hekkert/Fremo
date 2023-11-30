@@ -14,19 +14,31 @@ class WegdiagrameditController extends Controller
 {
     public function title($id)
     {
+        $treinen = Trein::all();
+        $modules = Module::all();
+
         // Fetch the project with the given ID from the database
-        $wegdiagram = Projects::find($id);
+        $project = Projects::find($id);
 
         // Check if the project exists
-        if (!$wegdiagram) {
+        if (!$project) {
             abort(404);
         }
 
+        $selectedModules = $project->selectedModules;
+
         // Pass the project data to the view
-        return view('editwegdiagram.edit', compact('wegdiagram'));
+        return view('editwegdiagram.edit', [
+            'project_id' => $id, // Use $id instead of $project_id
+            'project' => $project,
+            'modules' => $modules,
+            'selectedModules' => $selectedModules,
+        ]);
     }
+
     public function update($id, Request $request)
     {
+
         // Validate the request data
         $request->validate([
             'begintijd' => 'required|string|max:255',

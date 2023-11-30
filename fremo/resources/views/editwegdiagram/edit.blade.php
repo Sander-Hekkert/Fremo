@@ -6,9 +6,11 @@
         <div class="col-4">
             <h1>Tijd / wegdiagram</h1>
 
-            <form id="wegdiagramForm" action="{{ route('wegdiagram.store') }}" method="post">
-                @csrf
-                <input type="hidden" name="project_id" value="{{ $project_id }}">
+            <form id="wegdiagramForm" action="{{ route('wegdiagram.store', ['id' => $project->id]) }}" method="post">
+
+            @csrf
+                <input type="hidden" name="project_id" value="{{ $project->id }}">
+
 
                 <div class="mb-3">
                     <label for="datum" class="form-label">Datum:</label>
@@ -38,9 +40,13 @@
                         <div class="card-body">
                             <h5 class="card-title">Modules</h5>
                             <ul id="modulesList">
-                                @foreach($selectedModules as $selectedModuleId)
-                                <li>{{ $modules->find($selectedModuleId)->naam }}</li>
-                                @endforeach
+                                @if ($selectedModules)
+                                    @foreach($selectedModules as $selectedModuleId)
+                                        <li>{{ $modules->find($selectedModuleId)->naam }}</li>
+                                    @endforeach
+                                @endif
+
+
                             </ul>
                         </div>
                     </div>
