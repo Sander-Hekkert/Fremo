@@ -47,6 +47,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/projects', [ProjectController::class, 'index'])->name('project.index');
     Route::post('/projects', [ProjectController::class, 'store'])->name('project.store');
     Route::post('/project/store', [ProjectController::class, 'store'])->name('project.store');
+
 //Wegdiagram
     Route::get('/wegdiagram/create/{project_id}', [WegdiagramController::class, 'create'])->name('wegdiagram.create');
     Route::post('/wegdiagram/store', [WegdiagramController::class, 'store'])->name('wegdiagram.store');
