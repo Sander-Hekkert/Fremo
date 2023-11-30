@@ -11,6 +11,7 @@ class Stationweg extends Model
     protected $fillable = [
         'project_id',
         'module_id',
+        'module_naam',
     ];
 
 

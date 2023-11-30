@@ -3,25 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Wegdiagram;
-use App\Models\Stationweg; // Import the Stationweg model
+use App\Models\Stationweg;
 use Illuminate\Http\Request;
 //use Barryvdh\DomPDF\PDF; <-probeer deze ipv facade als die niet werkt
 use Barryvdh\DomPDF\Facade as PDF;
 use App\Models\Projects;
-use App\Models\Trein;
 use App\Models\Module;
 
 class WegdiagramController extends Controller
 {
     public function create($project_id)
     {
-        $treinen = Trein::all();
         $modules = Module::all();
 
         // Ophalen van geselecteerde modules_id
         $selectedModules = Wegdiagram::where('projects_id', $project_id)->pluck('modules_id')->toArray();
 
-        return view('wegdiagram.create', compact('project_id', 'treinen', 'modules', 'selectedModules'));
+        return view('wegdiagram.create', compact('project_id', 'modules', 'selectedModules'));
     }
 
     public function store(Request $request)
@@ -43,16 +41,14 @@ class WegdiagramController extends Controller
 
     public function downloadPDF($project_id)
     {
-        // Haal de gegevens op die je in de PDF wilt opnemen (bijvoorbeeld projectgegevens, wegdiagramgegevens, treinen, stations, enz.)
+        // Haal de gegevens op die je in de PDF wilt opnemen (bijvoorbeeld projectgegevens, wegdiagramgegevens, stations, enz.)
         $project = Projects::find($project_id);
         $wegdiagrams = Wegdiagram::where('projects_id', $project_id)->get();
-        $treinen = Trein::all();
         $stations = Module::all();
 
         $data = [
             'project' => $project,
             'wegdiagrams' => $wegdiagrams,
-            'treinen' => $treinen,
             'stations' => $stations,
         ];
 
@@ -69,15 +65,22 @@ class WegdiagramController extends Controller
             'project_id' => 'required',
             'module_id' => 'required',
         ]);
-
+    
+        $module = Module::find($request->module_id);
+    
         $stationweg = new Stationweg();
         $stationweg->project_id = $request->project_id;
         $stationweg->module_id = $request->module_id;
+        $stationweg->module_naam = $module->naam; // Store module_naam
         $stationweg->save();
-
+    
         // Add a debugging statement
         \Log::info('Stationweg added: ' . $stationweg->id . ', ' . $stationweg->module_id);
-
-        return response()->json(['module_name' => $stationweg->module->naam]);
+    
+        return response()->json([
+            'module_id' => $stationweg->module_id,
+            'module_naam' => $stationweg->module_naam,
+        ]);
     }
+    
 }

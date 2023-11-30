@@ -39,7 +39,7 @@
                             <h5 class="card-title">Modules</h5>
                             <ul id="modulesList">
                                 @foreach($selectedModules as $selectedModuleId)
-                                <li>{{ $modules->find($selectedModuleId)->naam }}</li>
+                                <li data-module-id="{{ $modules->find($selectedModuleId)->id }}">{{ $modules->find($selectedModuleId)->naam }}</li>
                                 @endforeach
                             </ul>
                         </div>
@@ -69,7 +69,7 @@
                 },
                 success: function (response) {
                     // Voeg de module toe aan de lijst
-                    $('#modulesList').append('<li>' + response.module_name + '</li>');
+                    $('#modulesList').append('<li data-module-id="' + response.module_id + '">' + response.module_naam + '</li>');
                 },
                 error: function (xhr) {
                     console.log(xhr.responseText);
