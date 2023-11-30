@@ -14,9 +14,8 @@ class CreateStationwegTable extends Migration
     {
         Schema::create('stationweg', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('project_id');
             $table->unsignedBigInteger('module_id');
-            $table->foreign('module_id')->references('id')->on('modules')->onDelete('cascade');
-            $table->string('module_naam'); // Removed the ->references('naam')->on('modules') part
             $table->timestamps();
         });
     }
