@@ -114,6 +114,8 @@
     <main class="py-4">
         @yield('content')
     </main>
+    <!-- resources/views/layouts/app.blade.php -->
+@livewireScripts
 </div>
 </body>
 </html>

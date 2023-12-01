@@ -16,6 +16,7 @@ class CreateStationwegTable extends Migration
             $table->id();
             $table->unsignedBigInteger('project_id');
             $table->unsignedBigInteger('module_id');
+            $table->string('module_naam');
             $table->timestamps();
         });
     }

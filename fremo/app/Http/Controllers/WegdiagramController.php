@@ -3,25 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Wegdiagram;
-use App\Models\Stationweg; // Import the Stationweg model
+use App\Models\Stationweg;
 use Illuminate\Http\Request;
-//use Barryvdh\DomPDF\PDF; <-probeer deze ipv facade als die niet werkt
-use Barryvdh\DomPDF\Facade as PDF;
 use App\Models\Projects;
-use App\Models\Trein;
 use App\Models\Module;
 
 class WegdiagramController extends Controller
 {
     public function create($project_id)
     {
-        $treinen = Trein::all();
         $modules = Module::all();
 
         // Ophalen van geselecteerde modules_id
         $selectedModules = Wegdiagram::where('projects_id', $project_id)->pluck('modules_id')->toArray();
 
-        return view('wegdiagram.create', compact('project_id', 'treinen', 'modules', 'selectedModules'));
+        return view('wegdiagram.create', compact('project_id', 'modules', 'selectedModules'));
     }
 
     public function store(Request $request)
@@ -41,43 +37,16 @@ class WegdiagramController extends Controller
         return redirect()->route('tijddiagram.index', ['project_id' => $request->input('project_id')])->with('success', 'Wegdiagram successfully created!');
     }
 
-    public function downloadPDF($project_id)
+    // Add this method as per your requirement
+    public function yourControllerMethod($project_id)
     {
-        // Haal de gegevens op die je in de PDF wilt opnemen (bijvoorbeeld projectgegevens, wegdiagramgegevens, treinen, stations, enz.)
-        $project = Projects::find($project_id);
-        $wegdiagrams = Wegdiagram::where('projects_id', $project_id)->get();
-        $treinen = Trein::all();
-        $stations = Module::all();
-
-        $data = [
-            'project' => $project,
-            'wegdiagrams' => $wegdiagrams,
-            'treinen' => $treinen,
-            'stations' => $stations,
-        ];
-
-        // Laad de PDF-weergave en geef de gegevens door
-        $pdf = PDF::loadView('wegdiagram.pdf', $data);
-
-        // Download de PDF
-        return $pdf->download('wegdiagram_overview.pdf');
-    }
-
-    public function storeModule(Request $request)
-    {
-        $request->validate([
-            'project_id' => 'required',
-            'module_id' => 'required',
+        return view('your.blade.view')->with([
+            'livewireComponent' => ModuleList::class,
+            'livewireData' => [
+                'project_id' => $project_id,
+                'selectedModules' => $selectedModules, // Pass your selectedModules here
+            ],
         ]);
-
-        $stationweg = new Stationweg();
-        $stationweg->project_id = $request->project_id;
-        $stationweg->module_id = $request->module_id;
-        $stationweg->save();
-
-        // Add a debugging statement
-        \Log::info('Stationweg added: ' . $stationweg->id . ', ' . $stationweg->module_id);
-
-        return response()->json(['module_name' => $stationweg->module->naam]);
     }
+    
 }

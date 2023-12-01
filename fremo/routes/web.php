@@ -16,6 +16,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProjecteditController;
 use App\Http\Controllers\WegdiagrameditController;
 use App\Http\Controllers\TijddiagrameditController;
+use App\Http\Livewire\ModuleList;
 
 Auth::routes();
 
@@ -51,7 +52,8 @@ Route::group(['middleware' => 'auth'], function(){
 //Wegdiagram
     Route::get('/wegdiagram/create/{project_id}', [WegdiagramController::class, 'create'])->name('wegdiagram.create');
     Route::post('/wegdiagram/store', [WegdiagramController::class, 'store'])->name('wegdiagram.store');
-    Route::get('/wegdiagram/storeModule', [WegdiagramController::class, 'storeModule'])->name('wegdiagram.storeModule');
+    Route::post('/wegdiagram/storeModule', [WegdiagramController::class, 'storeModule'])->name('wegdiagram.storeModule');
+    Route::get('/download-pdf-wegdiagram/{project_id}', [WegdiagramController::class, 'downloadPDF'])->name('wegdiagram.downloadPDF');
 
 //Dienstregeling
     Route::get('/dienstregeling', [DienstregelingController::class, 'index'])->name('dienstregeling');
@@ -89,8 +91,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/update-user/{id}', [UsersController::class, 'updateUser'])->name('updateUser');
 
 //Wagenkaart
-Route::post('wagenkaart', [WagenkaartController::class, 'store'])->name('wagenkaart.store');
+    Route::post('wagenkaart', [WagenkaartController::class, 'store'])->name('wagenkaart.store');
 
-//Pdf
-    Route::get('/download-pdf-wegdiagram/{project_id}', 'WegdiagramController@downloadPDF')->name('wegdiagram.downloadPDF');
+//Modulelist
+    Route::get('/module-list/{project_id}', [ModuleList::class, 'show'])->name('module-list.show');
+    Livewire::component('module-list', ModuleList::class);
 });
