@@ -14,6 +14,7 @@
       <excludeFolder url="file://$MODULE_DIR$/fremo/vendor/phenx/php-svg-lib" />
       <excludeFolder url="file://$MODULE_DIR$/fremo/vendor/dompdf/dompdf" />
       <excludeFolder url="file://$MODULE_DIR$/fremo/vendor/masterminds/html5" />
+      <excludeFolder url="file://$MODULE_DIR$/fremo/vendor/livewire/livewire" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

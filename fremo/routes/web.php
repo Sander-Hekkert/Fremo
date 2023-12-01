@@ -17,6 +17,7 @@ use App\Http\Controllers\ProjecteditController;
 use App\Http\Controllers\WegdiagrameditController;
 use App\Http\Controllers\TijddiagrameditController;
 use App\Http\Livewire\ModuleList;
+use Livewire\Livewire;
 
 Auth::routes();
 
