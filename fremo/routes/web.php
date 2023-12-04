@@ -92,8 +92,9 @@ Route::group(['middleware' => 'auth'], function(){
 
 //Wagenkaart
     Route::get('/wagenkaart', [WagenkaartController::class, 'index'])->name('wagenkaart.index');
+    Route::get('/wagenkaart/view/{id}', [WagenkaartController::class, 'show'])->name('wagenkaart.show');
     Route::get('/wagenkaart/create', [WagenkaartController::class, 'create'])->name('wagenkaart.create');
-    Route::post('/wagenkaart', [WagenkaartController::class, 'store'])->name('wagenkaart.store');
+    Route::post('/wagenkaart/store', [WagenkaartController::class, 'store'])->name('wagenkaart.store');
 
 
 

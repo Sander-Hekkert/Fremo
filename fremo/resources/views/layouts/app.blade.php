@@ -73,11 +73,10 @@
                                 @endif
                             </div>
                         </li>
-                        @if (Route::has('wagenkaart'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('wagenkaart') }}">{{ __('Wagenkaart') }}</a>
-                            </li>
-                        @endif
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('wagenkaart.index') }}">Wagenkaart</a>
+                                </li>
                         @if(Auth::user() && !in_array(Auth::user()->roles_id, [2, 3]))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('users.index') }}">Users</a>
@@ -133,3 +132,4 @@
         font-weight: bold;
     }
 </style>
+
