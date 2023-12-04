@@ -8,11 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Stationweg extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'project_id',
-        'module_id',
-        'module_naam',
-    ];
 
+    protected $table = 'stationweg';
+    protected $fillable = ['project_id', 'module_id', 'module_naam']; 
 
+    public function project()
+    {
+        return $this->belongsTo(Project::class, 'project_id');
+    }
+
+    public function module()
+    {
+        return $this->belongsTo(Module::class, 'module_id');
+    }
 }

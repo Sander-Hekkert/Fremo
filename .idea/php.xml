@@ -130,6 +130,7 @@
       <path value="$PROJECT_DIR$/fremo/vendor/phenx/php-svg-lib" />
       <path value="$PROJECT_DIR$/fremo/vendor/dompdf/dompdf" />
       <path value="$PROJECT_DIR$/fremo/vendor/masterminds/html5" />
+      <path value="$PROJECT_DIR$/fremo/vendor/livewire/livewire" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

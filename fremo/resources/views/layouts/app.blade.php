@@ -115,6 +115,7 @@
         @yield('content')
     </main>
     <!-- resources/views/layouts/app.blade.php -->
+@livewireStyles
 @livewireScripts
 </div>
 </body>

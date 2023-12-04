@@ -7,6 +7,7 @@ use App\Models\Stationweg;
 use Illuminate\Http\Request;
 use App\Models\Projects;
 use App\Models\Module;
+use App\Http\Livewire\ModuleList; // Import the Livewire component
 
 class WegdiagramController extends Controller
 {
@@ -38,8 +39,9 @@ class WegdiagramController extends Controller
     }
 
     // Add this method as per your requirement
-    public function yourControllerMethod($project_id)
+    public function ModuleList($project_id)
     {
+        $selectedModules = Wegdiagram::where('projects_id', $project_id)->pluck('modules_id')->toArray();
         return view('your.blade.view')->with([
             'livewireComponent' => ModuleList::class,
             'livewireData' => [
@@ -48,5 +50,4 @@ class WegdiagramController extends Controller
             ],
         ]);
     }
-    
 }

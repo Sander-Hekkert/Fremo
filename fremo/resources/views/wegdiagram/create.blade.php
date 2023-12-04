@@ -1,7 +1,7 @@
+<!-- resources/views/livewire/module-list.blade.php -->
 @extends('layouts.app')
 
 @section('content')
-<!-- resources/views/livewire/module-list.blade.php -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-4">
@@ -11,21 +11,13 @@
                 @csrf
                 <input type="hidden" name="project_id" value="{{ $project_id }}">
 
-                <div class="mb-3">
-                    <label for="datum" class="form-label">Datum:</label>
-                    <input type="date" name="datum" class="form-control border border-primary" required>
-                </div>
-
                 <div class="row">
-                        <div class="col-12">   
-                            <div class="mb-3">
-                                <label for="module" class="form-label">Selecteer een station:</label>
-                                @livewire('module-list', ['project_id' => $project_id, 'selectedModules' => $selectedModules])
-                            </div>
+                    <div class="col-12">
+                        <div class="mb-3">
+                            @livewire('module-list', ['project_id' => $project_id, 'selectedModules' => $selectedModules])
                         </div>
                     </div>
-
-                    <button type="button" wire:click="addModule" class="btn btn-success mt-2 text-white rounded-5">Voeg Module Toe</button>
+                </div>
             </form>
         </div>
         <div class="col-8">
@@ -46,6 +38,4 @@
         </div>
     </div>
 </div>
-
-    <button type="submit" id="saveButton" wire:click="save" class="btn btn-warning mt-3 text-white rounded-5">Sla op</button>
 @endsection
