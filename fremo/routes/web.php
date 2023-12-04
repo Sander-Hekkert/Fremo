@@ -22,7 +22,6 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/wagenkaart', [WagenkaartController::class, 'showWagenkaart'])->name('wagenkaart');
     Route::get('/module', [ModuleController::class, 'showModule'])->name('module');
     Route::get('/trein', [TreinController::class, 'showTrein'])->name('trein');
 
@@ -91,7 +90,12 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/update-user/{id}', [UsersController::class, 'updateUser'])->name('updateUser');
 
 //Wagenkaart
-    Route::post('wagenkaart', [WagenkaartController::class, 'store'])->name('wagenkaart.store');
+    Route::get('/wagenkaart', [WagenkaartController::class, 'index'])->name('wagenkaart.index');
+    Route::get('/wagenkaart/create', [WagenkaartController::class, 'create'])->name('wagenkaart.create');
+    Route::post('/wagenkaart', [WagenkaartController::class, 'store'])->name('wagenkaart.store');
+
+
+
 
 //Modulelist
     Route::get('/module-list/{project_id}', [ModuleList::class, 'show'])->name('module-list.show');

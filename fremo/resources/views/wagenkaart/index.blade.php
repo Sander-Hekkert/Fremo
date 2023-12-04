@@ -3,11 +3,13 @@
 @section('content')
     <div class="container-fluid">
         <h1 class="my-4">Wagenkaart</h1>
-
-        <table class="table">
-            <thead>
+        <div class="mb-3">
+            <a href="{{ route('wagenkaart.create') }}" class="btn btn-primary">New Wagenkaart</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
                 <tr>
-                    <th></th>
                     <th>Wagennummer</th>
                     <th>II</th>
                     <th>III</th>
@@ -32,9 +34,10 @@
                     <th>baujahr</th>
                     <th>Foto</th>
                     <th>Action</th>
+
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 @foreach ($wagenkaart as $wagen)
                     <tr>
                         <td>{{ $wagen->naam_bezitter }}</td>
@@ -61,7 +64,7 @@
                         <td>{{ $wagen->modellgewicht }}</td>
                         <td>{{ $wagen->baujahr }}</td>
                         <td>{{ $wagen->foto }}</td>
-
+                        <!-- ... (other data cells) ... -->
                         <td>
                             <form action="{{ route('module.destroy', $wagen->id) }}" method="POST" style="display: inline-block;">
                                 @csrf
@@ -71,7 +74,8 @@
                         </td>
                     </tr>
                 @endforeach
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 @endsection

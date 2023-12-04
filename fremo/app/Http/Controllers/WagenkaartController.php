@@ -8,6 +8,7 @@ use App\Models\Wagenkaart;
 
 class WagenkaartController extends Controller
 {
+
     public function index()
     {
         $wagenkaart = Wagenkaart::all();
@@ -24,8 +25,10 @@ class WagenkaartController extends Controller
         $validatedData = $request->validate([
             'naam_bezitter' => 'required|string',
             'naam' => 'required|string',
+            'other_field' => 'required', // Add validation rules for other fields
             // Add validation rules for other fields based on your table columns
         ]);
+
 
         Wagenkaart::create($validatedData);
 
