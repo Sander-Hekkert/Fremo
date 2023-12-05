@@ -13,4 +13,3 @@
     </ul>
 
     <button wire:click="addModule($selectedModules)">Add Selected Modules</button>
-</div>
