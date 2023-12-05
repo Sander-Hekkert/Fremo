@@ -8,6 +8,7 @@ use App\Models\Wagenkaart;
 
 class WagenkaartController extends Controller
 {
+
     public function index()
     {
         $wagenkaart = Wagenkaart::all();
@@ -22,8 +23,29 @@ class WagenkaartController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'naam_bezitter' => 'required|string',
+            'Eigenaarsnaam' => 'required|string',
             'naam' => 'required|string',
+            'nummer_module' => 'required|string',
+            'e_f' => 'required|string',
+            'opmerkingen_bijzonderheden' => 'nullable|string',
+            'uic_typ' => 'nullable|string',
+            'Beschrijving' => 'nullable|string',
+            'Lengte' => 'nullable|string',
+            'Asafstand' => 'nullable|string',
+            'Nuttige_Lading' => 'nullable|string',
+            'Ladelengte' => 'nullable|string',
+            'Ladeflak' => 'nullable|string',
+            'Lade_instructies' => 'nullable|string',
+            'Modelaanduiding' => 'nullable|string',
+            'Modelkenmerken' => 'nullable|string',
+            'Eigenaar' => 'nullable|string',
+            'Fabrikant' => 'nullable|string',
+            'Wielstellen' => 'nullable|string',
+            'Koppelingen' => 'nullable|string',
+            'Veerpuffer' => 'nullable|string',
+            'Model_lengte' => 'nullable|string',
+            'Modelgewicht' => 'nullable|string',
+            'Bouwjaar' => 'nullable|string',
             // Add validation rules for other fields based on your table columns
         ]);
 
@@ -31,6 +53,12 @@ class WagenkaartController extends Controller
 
         return redirect()->route('wagenkaart.index')->with('success', 'Wagenkaart entry created successfully!');
     }
+    public function show($id)
+    {
+        $wagenkaart = Wagenkaart::findOrFail($id);
+        return view('wagenkaart.show', compact('wagenkaart'));
+    }
+
 
     public function destroy($id)
     {
