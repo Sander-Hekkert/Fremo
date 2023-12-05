@@ -10,8 +10,19 @@
                        <h1> {{ $wagenkaart->naam }}</h1>
                     </div>
                     <div class="col-3 border">
-logo
+                        logo
                     </div>
+                    <div class="col-6 border">
+                        <p>bestemming</p>
+                        <h1>Plaats</h1>
+                    </div>
+                    <div class="col-6 border">
+                       <h2> AW: Plaats</h2>
+                    </div>
+                    <div class="col-3 border">lup:</div>
+                    <div class="col-3 border">{{ $wagenkaart->Lengte }}</div>
+                    <div class="col-3 border">Vmax</div>
+                    <div class="col-3 border">Km/u</div>
                 </div>
             </div>
         </div>
